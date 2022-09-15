@@ -35,4 +35,73 @@ For using material table you follow the next step
 </elix-table>
 ```
 
+```
+
+dataSource: your Type;
+  public list = [{
+    name: 'dasdasd',
+    name1: 'dasdasd',
+    age: 1,
+    iu: 'dasdsdasd',
+    iu1: 'dasdsdasd',
+    iu41: 'dasdsdasd',
+    iu1321: 'dasdsdasd',
+    iu21: 'dasdsdasd',
+    iu3: 'dasdsdasd',
+    age1: 1,
+    iu2: 'dasdsdasd',
+    iu11: 'dasdsdasd',
+    iu414: 'dasdsdasd',
+    iu13214: 'dasdsdasd',
+    iu251: 'dasdsdasd',
+    iu33: 'dasdsdasd'
+  }, ....]
+
+```
+
+```
+
+this.dataSource = this.list.map(resp => {
+      const model = <{ name: string, age: number }>resp
+      return {
+        actions: [{
+          iconClass: 'fa_solid:stethoscope',
+          classCss: 'driver__existing',
+          method: () => {
+          }
+        }] as IActionMaterialColumn[],
+        editable: false,
+        model: {
+          ...model
+        }
+      } as DataSourceMaterialTable<any>
+
+    })
+
+```
+    <div>
+      <elix-table [dataSource]="dataSource">
+        <elix-column-text
+          field="name"
+          name="TASDASD"
+        >
+        </elix-column-text>
+        <elix-column-text
+          field="age"
+          name="TASDASD"
+        >
+        </elix-column-text>
+        <elix-column-text
+          field="name1"
+          name="TASDASD"
+        >
+        </elix-column-text>
+      
+        .
+        .
+        . 
+      </elix-table>
+    </div>
+
+
 # and enjoy at this beautiful library
