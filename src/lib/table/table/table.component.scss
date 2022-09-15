@@ -1,6 +1,5 @@
 elix-table {
   transition: all 0.5s ease-in;
-  color: var(--primary-color-text);
 
   mat-table {
     color: transparent;
@@ -22,7 +21,6 @@ elix-table {
 
   mat-row {
     transition: all ease-in-out 0.1s;
-    color: var(--primary-color-text);
     min-height: 19px;
     position: relative;
 
@@ -38,6 +36,7 @@ elix-table {
       justify-content: flex-start;
       position: relative;
       min-height: 1rem;
+      color: black;
       mat-form-field {
         div {
           padding: 0 !important;
@@ -73,7 +72,7 @@ elix-table {
   }
 
   mat-header-cell {
-    color: var(--primary-color-text) !important;
+    color: white;
   }
 
   .header-color {
