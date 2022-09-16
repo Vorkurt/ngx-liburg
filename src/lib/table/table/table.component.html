@@ -1,16 +1,18 @@
-<mat-table mat-table [dataSource]="dataSource" multiTemplateDataRows="true" >
+<mat-table mat-table [dataSource]="dataSource" multiTemplateDataRows="true" cdkDropList [cdkDropListData]="dataSource"
+           (cdkDropListDropped)="drop($event)">
   <ng-content></ng-content>
   <mat-header-row
     class="header-color gap-1"
     mat-header-row
     *matHeaderRowDef="columnsToDispaly; sticky: true"
-  ></mat-header-row>
+  >
+  </mat-header-row>
   <mat-row
     mat-row
+    cdkDrag
     *matRowDef="let row; columns: columnsToDispaly"
     class="gap-1 header-border-left"
   ></mat-row>
-
   <!-- Footer for tabel -->
   <ng-container *ngIf="footerShow">
     <mat-footer-row

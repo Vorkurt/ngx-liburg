@@ -18,6 +18,7 @@ import {ColumnTextComponent} from './columns/column-text/column-text.component';
 import {ColumnTwoCasesComponent} from "./columns/column-two-cases/column-two-cases.component";
 import {TableComponent} from './table/table.component';
 import {TooltipComponent} from "./tooltip/tooltip.component";
+import {DragDropModule} from '@angular/cdk/drag-drop';
 
 @NgModule({
             declarations: [
@@ -43,6 +44,7 @@ import {TooltipComponent} from "./tooltip/tooltip.component";
               LayoutModule,
               MatTableModule,
               MatSlideToggleModule,
+              DragDropModule
             ],
             exports     : [
               TableComponent,
