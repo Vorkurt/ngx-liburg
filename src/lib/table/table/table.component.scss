@@ -21,8 +21,11 @@ elix-table {
   }
 
   mat-row {
-    transition: all ease-in-out 0.1s;
-    min-height: 19px;
+    box-shadow: 0 0px 8px #0003, 0px 0px 20px #00000030;
+    overflow: hidden;
+    transition: all ease-in-out .1s;
+    min-height: 32px;
+    border: 0.2px solid;
     position: relative;
 
     textarea {
