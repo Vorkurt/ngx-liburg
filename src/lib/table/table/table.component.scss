@@ -27,6 +27,7 @@ elix-table {
     min-height: 32px;
     border: 0.2px solid;
     position: relative;
+    height: 39px;
 
     textarea {
       outline: none;
@@ -41,16 +42,19 @@ elix-table {
       position: relative;
       min-height: 1rem;
       color: black;
+
       mat-form-field {
         div {
           padding: 0 !important;
           border: 0 !important;
+
           input {
             border: 1px solid;
             box-shadow: inset 0px 0px 3px 1px rgb(0 0 255 / 20%);
           }
         }
       }
+
       textarea {
         background: inherit;
         height: 1.95rem;
@@ -60,6 +64,7 @@ elix-table {
           border: 1px solid var(--primary-color-input);
         }
       }
+
       button {
         padding: 0 !important;
         min-width: auto !important;
