@@ -22,8 +22,6 @@ export class ColumnTextComponent<T> extends BaseColumn {
     new EventEmitter();
 
   public changeEntity(rowElement: {change: unknown}) {
-    console.log(rowElement);
-
     this.onValueChanges.emit(rowElement);
   }
 }
