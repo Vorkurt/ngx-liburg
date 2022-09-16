@@ -10,7 +10,7 @@
     >
       <input
         [(ngModel)]="element.model[field]"
-        (ngModelChange)="element.model[field] = $event; changeEntity(element)"
+        (ngModelChange)="element.model[field] = $event; changeEntity({change: {dataChanged: element.model[field], data: field}})"
         matInput
       />
     </mat-form-field>

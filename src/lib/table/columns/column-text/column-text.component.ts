@@ -18,10 +18,12 @@ import {DataSourceMaterialTable} from "../../table/table.component";
 })
 export class ColumnTextComponent<T> extends BaseColumn {
   @Output()
-  public onValueChanges: EventEmitter<DataSourceMaterialTable<T>> =
+  public onValueChanges: EventEmitter<{change: unknown}> =
     new EventEmitter();
 
-  public changeEntity(rowElement: DataSourceMaterialTable<T>) {
+  public changeEntity(rowElement: {change: unknown}) {
+    console.log(rowElement);
+
     this.onValueChanges.emit(rowElement);
   }
 }
