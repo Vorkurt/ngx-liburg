@@ -6,7 +6,7 @@ import {MatPaginator, PageEvent} from '@angular/material/paginator';
 import {MatColumnDef, MatTable} from '@angular/material/table';
 import {BehaviorSubject, Subject} from 'rxjs';
 import {takeUntil} from 'rxjs/operators';
-import { BaseColumn } from '../base-column';
+import {BaseColumn} from '../base-column';
 
 export interface IActionMaterialColumn {
   iconClass : string;
@@ -23,7 +23,7 @@ export interface DataSourceMaterialTable<T> {
 
   actions : IActionMaterialColumn[];
 
-  id?: number
+  id? : number;
 }
 
 @Component({
@@ -80,6 +80,9 @@ export class TableComponent<T> implements AfterViewInit, OnDestroy {
   // @ts-ignore
   public paginationClass : string;
 
+  @Input()
+  public addedNewEntry = false;
+
   @Output() public onAddEntry : EventEmitter<any> = new EventEmitter<any>();
 
   @Output() public onPaginationChange : EventEmitter<PageEvent> =
@@ -135,20 +138,22 @@ export class TableComponent<T> implements AfterViewInit, OnDestroy {
     this._changeDetectorRef.detectChanges();
   }
 
-  public addNewEntry() {}
+  public addNewEntry() {
+    this.onAddEntry.next();
+  }
 
   public changePage(event : PageEvent) {
     this.onPaginationChange.emit(event);
   }
 
+  public drop(event : CdkDragDrop<Array<DataSourceMaterialTable<T>>>) : void {
+    moveItemInArray(this.dataSource, event.previousIndex, event.currentIndex);
+    this.table.renderRows();
+  }
+
   public ngOnDestroy() {
     this._destroyed.next();
     this._destroyed.complete();
-  }
-
-  public drop(event : CdkDragDrop<Array<DataSourceMaterialTable<T>>>) : void {
-    moveItemInArray(this.dataSource, event.previousIndex, event.currentIndex);
-    this.table.renderRows()
   }
 
   private _setColumnForLayout() {
