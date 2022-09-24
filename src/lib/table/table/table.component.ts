@@ -6,7 +6,7 @@ import {MatPaginator, PageEvent} from '@angular/material/paginator';
 import {MatColumnDef, MatTable} from '@angular/material/table';
 import {BehaviorSubject, Subject} from 'rxjs';
 import {takeUntil} from 'rxjs/operators';
-import {BaseColumn} from '../base-column';
+import { BaseColumn } from '../base-column';
 
 export interface IActionMaterialColumn {
   iconClass : string;
