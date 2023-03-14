@@ -6,7 +6,6 @@ import {
   trigger
 } from '@angular/animations';
 import { CdkDragDrop, moveItemInArray } from "@angular/cdk/drag-drop";
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import {
   AfterViewInit,
   ChangeDetectorRef,
@@ -27,6 +26,7 @@ import { BehaviorSubject, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { BaseColumn } from '../base-column';
 import { ColumnRotateService } from "../columns/service/column-rotate.service";
+import { TableService } from "./table.service";
 
 export interface IActionMaterialColumn {
   iconClass: string;
@@ -137,7 +137,7 @@ export class TableComponent<T> implements AfterViewInit, OnDestroy {
   private _destroyed = new Subject<void>();
 
   constructor(
-    private readonly _brPoint: BreakpointObserver,
+    private readonly _tableState: TableService,
     private readonly _columnRotate: ColumnRotateService,
     private readonly _changeDetectorRef: ChangeDetectorRef,
   ){
@@ -215,7 +215,7 @@ export class TableComponent<T> implements AfterViewInit, OnDestroy {
       this.doubleColumnToDisplay[ index ] = this.doubleColumnToDisplay[ index + 1 ]
     })
     this.doubleColumnToDisplay[ this.doubleColumnToDisplay.length - 1 ] = intermediateColumn
-    this._swapColumn(this.doubleColumnToDisplay);
+    this._columnRotate.swapColumn(this.doubleColumnToDisplay);
   }
 
   private _rotateRight(){
@@ -226,70 +226,13 @@ export class TableComponent<T> implements AfterViewInit, OnDestroy {
     this.doubleColumnToDisplay[ 0 ] = intermediateColumn
   }
 
-  private _swapColumn(doubleColumnToDisplay: string[]){
-    const temporallyIndex = doubleColumnToDisplay[ doubleColumnToDisplay.length - 1 ]
-    doubleColumnToDisplay[ doubleColumnToDisplay.length - 1 ] = doubleColumnToDisplay[ doubleColumnToDisplay.length - 2 ]
-    doubleColumnToDisplay[ doubleColumnToDisplay.length - 2 ] = temporallyIndex
-  }
 
   private _setColumnForLayout(){
-    this._brPoint
-      .observe([
-        Breakpoints.XSmall,
-        Breakpoints.Small,
-        Breakpoints.Medium,
-        Breakpoints.Large,
-        Breakpoints.XLarge,
-      ])
-      .pipe(takeUntil(this._destroyed))
-      .subscribe(() => {
-        if ( this._brPoint.isMatched(
-          Breakpoints.XSmall) ) {
-          this.columnsToDispaly = this.doubleColumnToDisplay.filter(
-            (item, index) => {
-              return (
-                index <= 0 || index === this.doubleColumnToDisplay.length - 1
-              );
-            },
-          );
-        } else if ( this._brPoint.isMatched(
-          Breakpoints.Small) ) {
-          this.columnsToDispaly = this.doubleColumnToDisplay.filter(
-            (item, index) => {
-              return (
-                index <= 2 || index === this.doubleColumnToDisplay.length - 1
-              );
-            },
-          );
-        } else if ( this._brPoint.isMatched(
-          Breakpoints.Medium) ) {
-          this.columnsToDispaly = this.doubleColumnToDisplay.filter(
-            (item, index) => {
-              return (
-                index <= 3 || index === this.doubleColumnToDisplay.length - 1
-              );
-            },
-          );
-        } else if ( this._brPoint.isMatched(
-          Breakpoints.Large) ) {
-          this.columnsToDispaly = this.doubleColumnToDisplay.filter(
-            (item, index) => {
-              return (
-                index <= 4 || index === this.doubleColumnToDisplay.length - 1
-              );
-            },
-          );
-        } else if ( this._brPoint.isMatched(
-          Breakpoints.XLarge) ) {
-          this.columnsToDispaly = this.doubleColumnToDisplay.filter(
-            (item, index) => {
-              return (
-                index >= 0
-              );
-            },
-          );
-        }
-      });
+    this._tableState.responsive(this.columnsToDispaly, this.doubleColumnToDisplay)
+    this._tableState.columnDisplay$.pipe(takeUntil(this._destroyed)).subscribe(
+      columns => {
+        this.columnsToDispaly = columns
+      })
   }
 
   public ngOnDestroy(){

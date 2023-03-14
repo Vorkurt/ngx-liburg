@@ -12,4 +12,9 @@ export class ColumnRotateService {
   setSide(position: string){
     this._rotate.next( position)
   }
+  public swapColumn(doubleColumnToDisplay: string[]){
+    const temporallyIndex = doubleColumnToDisplay[ doubleColumnToDisplay.length - 1 ]
+    doubleColumnToDisplay[ doubleColumnToDisplay.length - 1 ] = doubleColumnToDisplay[ doubleColumnToDisplay.length - 2 ]
+    doubleColumnToDisplay[ doubleColumnToDisplay.length - 2 ] = temporallyIndex
+  }
 }
