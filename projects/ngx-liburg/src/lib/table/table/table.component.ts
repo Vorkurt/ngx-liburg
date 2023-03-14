@@ -225,8 +225,7 @@ export class TableComponent<T> implements AfterViewInit, OnDestroy {
     }
     this.doubleColumnToDisplay[ 0 ] = intermediateColumn
   }
-
-
+  
   private _setColumnForLayout(){
     this._tableState.responsive(this.columnsToDispaly, this.doubleColumnToDisplay)
     this._tableState.columnDisplay$.pipe(takeUntil(this._destroyed)).subscribe(
