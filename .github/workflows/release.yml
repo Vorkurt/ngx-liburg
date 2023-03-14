@@ -24,7 +24,7 @@ jobs:
       - name: Set up authentication token
         run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_AUTH_TOKEN }}" > ~/.npmrc
       - name: Change directory
-        run: cd /home/runner/work/ngx-liburg/ngx-liburg/dist/ngx-liburg
+        run: cd dist/ngx-liburg
       - name: Publish to NPM
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
