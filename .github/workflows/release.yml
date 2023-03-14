@@ -3,21 +3,21 @@ name: "publish"
 on:
   push:
     branches:
-      geea
+      master
 
 jobs:
-  release:
-          name: ✈️ publish
-          runs-on: ubuntu-latest
-          steps:
-              - name: 🏦 checkout
-                uses: actions/checkout@v2.1.1
-              - name: 🐇 node
-                uses: actions/setup-node@v1.4.2
-                with:
-                    node-version: 12
-                    registry-url: https://registry.npmjs.org
-              - name: ✈️ publish
-                run: npm publish --access public
+    release:
+        name: 🚀 release
+        runs-on: ubuntu-latest
+        steps:
+            - name: 📚 checkout
+              uses: actions/checkout@v2.1.1
+            - name: "🔧 setup node"
+              uses: actions/setup-node@v2.1.5
+              with:
+                  node-version: 16
+                  registry-url: https://registry.npmjs.org
+            - name: ✈️ publish
+              run: npm publish --access public
               env:
                   NODE_AUTH_TOKEN: ${secrets.NPM_AUTH_TOKEN}
