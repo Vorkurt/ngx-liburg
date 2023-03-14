@@ -16,6 +16,13 @@
           class="your classes "
         ></mat-icon>
       </button>
+      <button mat-button
+              (click)="scrollColumn('right')">
+        <mat-icon
+          [svgIcon]="'fa_solid:arrow-right'"
+          class="your classes "
+        ></mat-icon>
+      </button>
     </ng-container>
   </mat-header-cell>
   <mat-cell [class]="className" mat-cell *matCellDef="let element">
