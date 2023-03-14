@@ -27,7 +27,7 @@ export class TableService {
           columnsToDisplay = cloneColumn.filter(
             (item, index) => {
               return (
-                index <= 0 || index === cloneColumn.length - 1
+                index <= 1 || index === cloneColumn.length - 1
               );
             },
           );
@@ -54,7 +54,7 @@ export class TableService {
           columnsToDisplay = cloneColumn.filter(
             (item, index) => {
               return (
-                index <= 4 || index === cloneColumn.length - 1
+                index <= 5 || index === cloneColumn.length - 1
               );
             },
           );
