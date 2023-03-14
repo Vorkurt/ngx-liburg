@@ -1,0 +1,22 @@
+name: "publish"
+
+on:
+  push:
+    branches:
+      master
+
+jobs:
+    release:
+        name: 🚀 release
+        runs-on: ubuntu-latest
+        steps:
+          - name: Checkout code
+            uses: actions/checkout@v2
+          - name: Install dependencies
+            run: npm install
+          - name: Build library
+            run: ng build ngx-build
+          - name: Publish to NPM
+            env:
+              NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+            run: npm publish
