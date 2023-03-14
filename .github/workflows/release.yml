@@ -12,10 +12,10 @@ jobs:
         steps:
             - name: 📚 checkout
               uses: actions/checkout@v2.1.1
-            - name: 🟢 node
-              uses: actions/setup-node@v1.4.2
+            - name: "🔧 setup node"
+              uses: actions/setup-node@v2.1.5
               with:
-                  node-version: 12
+                  node-version: 16
                   registry-url: https://registry.npmjs.org
             - name: ✈️ publish
               run: npm publish --access public
