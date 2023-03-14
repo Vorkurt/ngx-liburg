@@ -26,7 +26,8 @@ elix-table {
     min-height: 32px;
     border: 0.2px solid;
     position: relative;
-    height: 39px;
+
+    height: max-content;
 
     textarea {
       outline: none;

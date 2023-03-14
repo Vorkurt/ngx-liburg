@@ -1,6 +1,6 @@
 <ng-container [matColumnDef]="field" >
   <mat-header-cell [class]="className" mat-header-cell *matHeaderCellDef>
-    {{ name }}dasdas
+    {{ name }}
   </mat-header-cell>
   <mat-cell [class]="className" mat-cell *matCellDef="let element">
     <mat-form-field
@@ -15,7 +15,7 @@
       />
     </mat-form-field>
     <ng-template #prettyText>
-      <div class="text-disable">
+      <div class="text-disable dark:text-white">
       {{ element.model[field] }}
     </div>
     </ng-template>

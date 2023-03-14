@@ -2,14 +2,19 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
+    "baseUrl": "src",
     "outDir": "../../out-tsc/lib",
     "declaration": true,
     "declarationMap": true,
     "inlineSources": true,
-    "types": []
+    "types": [],
+    "paths": {
+      "@base/*": ["../../base-column"]
+    }
   },
   "exclude": [
     "src/test.ts",
     "**/*.spec.ts"
   ]
+
 }
