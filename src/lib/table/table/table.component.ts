@@ -182,22 +182,6 @@ export class TableComponent<T> implements AfterViewInit, OnDestroy {
     this._changeDetectorRef.detectChanges();
   }
 
-  private rotateColumn(side: string){
-    if(side ==='left'){
-    let intermediateColumn = this.columnsToDispaly[ 0 ]
-    this.columnsToDispaly.forEach((column, index) => {
-      if ( index <= this.columnsToDispaly.length - 1 ) {
-        this.columnsToDispaly[ index ] = this.doubleColumnToDisplay[ ++index ]
-      }
-    })
-    this.doubleColumnToDisplay = [ ...this.columnsToDispaly ]
-    let action = this.doubleColumnToDisplay[ this.doubleColumnToDisplay.length - 1 ]
-    this.doubleColumnToDisplay[ this.doubleColumnToDisplay.length - 1 ] = intermediateColumn
-    this.doubleColumnToDisplay[ this.doubleColumnToDisplay.length ] = action
-    }else{
-    }
-  }
-
   public addNewEntry(){
     this.onAddEntry.next(true);
   }
@@ -212,6 +196,24 @@ export class TableComponent<T> implements AfterViewInit, OnDestroy {
       event.previousIndex,
       event.currentIndex);
     this.table.renderRows();
+  }
+
+  private rotateColumn(side: string){
+    if ( side === 'left' ) {
+      const intermediateColumn = this.doubleColumnToDisplay[ 0 ]
+      this.doubleColumnToDisplay.forEach((column , index) => {
+        this.doubleColumnToDisplay[index] = this.doubleColumnToDisplay[index+1]
+      })
+      this.doubleColumnToDisplay[this.doubleColumnToDisplay.length -1 ] = intermediateColumn
+      this._swapColumn(this.doubleColumnToDisplay);
+      this.columnsToDispaly = [...this.doubleColumnToDisplay.slice(0,this.columnsToDispaly.length-1), 'action']
+    }
+  }
+
+  private _swapColumn(doubleColumnToDisplay: string[]){
+    const temporallyIndex = doubleColumnToDisplay[ doubleColumnToDisplay.length - 1 ]
+    doubleColumnToDisplay[doubleColumnToDisplay.length - 1 ] = doubleColumnToDisplay[ doubleColumnToDisplay.length - 2 ]
+    doubleColumnToDisplay[doubleColumnToDisplay.length - 2 ] = temporallyIndex
   }
 
   private _setColumnForLayout(){
