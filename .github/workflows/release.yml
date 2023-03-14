@@ -6,17 +6,23 @@ on:
       main
 
 jobs:
-    release:
-        name: 🚀 release
-        runs-on: ubuntu-latest
-        steps:
-          - name: Checkout code
-            uses: actions/checkout@v2
-          - name: Install dependencies
-            run: npm install
-          - name: Build library
-            run: ng build ngx-build
-          - name: Publish to NPM
-            env:
-              NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-            run: npm publish
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Install Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16.x'
+      - name: Install Angular CLI
+        run: npm install -g @angular/cli
+      - name: Install dependencies
+        run: npm install
+      - name: Build library
+        run: ng build ngx-liburg
+      - name: Publish to NPM
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+        run: npm publish
+
