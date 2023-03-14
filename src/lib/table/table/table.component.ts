@@ -200,20 +200,36 @@ export class TableComponent<T> implements AfterViewInit, OnDestroy {
 
   private rotateColumn(side: string){
     if ( side === 'left' ) {
-      const intermediateColumn = this.doubleColumnToDisplay[ 0 ]
-      this.doubleColumnToDisplay.forEach((column , index) => {
-        this.doubleColumnToDisplay[index] = this.doubleColumnToDisplay[index+1]
-      })
-      this.doubleColumnToDisplay[this.doubleColumnToDisplay.length -1 ] = intermediateColumn
-      this._swapColumn(this.doubleColumnToDisplay);
-      this.columnsToDispaly = [...this.doubleColumnToDisplay.slice(0,this.columnsToDispaly.length-1), 'action']
+      this._rotateLeft();
+    } else {
+      this._rotateRight();
     }
+    this.columnsToDispaly = [ ...this.doubleColumnToDisplay.slice(
+      0,
+      this.columnsToDispaly.length - 1), 'action' ]
+  }
+
+  private _rotateLeft(){
+    const intermediateColumn = this.doubleColumnToDisplay[ 0 ]
+    this.doubleColumnToDisplay.forEach((column, index) => {
+      this.doubleColumnToDisplay[ index ] = this.doubleColumnToDisplay[ index + 1 ]
+    })
+    this.doubleColumnToDisplay[ this.doubleColumnToDisplay.length - 1 ] = intermediateColumn
+    this._swapColumn(this.doubleColumnToDisplay);
+  }
+
+  private _rotateRight(){
+    const intermediateColumn = this.doubleColumnToDisplay[ this.doubleColumnToDisplay.length - 2 ]
+    for ( let i = this.doubleColumnToDisplay.length - 2; i > 0; i-- ) {
+      this.doubleColumnToDisplay[ i ] = this.doubleColumnToDisplay[ i - 1 ]
+    }
+    this.doubleColumnToDisplay[ 0 ] = intermediateColumn
   }
 
   private _swapColumn(doubleColumnToDisplay: string[]){
     const temporallyIndex = doubleColumnToDisplay[ doubleColumnToDisplay.length - 1 ]
-    doubleColumnToDisplay[doubleColumnToDisplay.length - 1 ] = doubleColumnToDisplay[ doubleColumnToDisplay.length - 2 ]
-    doubleColumnToDisplay[doubleColumnToDisplay.length - 2 ] = temporallyIndex
+    doubleColumnToDisplay[ doubleColumnToDisplay.length - 1 ] = doubleColumnToDisplay[ doubleColumnToDisplay.length - 2 ]
+    doubleColumnToDisplay[ doubleColumnToDisplay.length - 2 ] = temporallyIndex
   }
 
   private _setColumnForLayout(){
