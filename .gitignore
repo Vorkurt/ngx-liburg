@@ -36,6 +36,7 @@ node_modules/
 /libpeerconnection.log
 testem.log
 /typings
+dist/
 
 # System files
 .DS_Store
