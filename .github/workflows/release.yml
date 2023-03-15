@@ -41,6 +41,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm ci
+      - run: npm version patch
       - run: npm run-script build
       - run: cd dist/ngx-liburg && npm publish
         env:
