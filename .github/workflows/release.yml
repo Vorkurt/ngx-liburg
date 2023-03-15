@@ -41,7 +41,7 @@ jobs:
       - run: npm ci
       - run: npm run-script build
       - run : cd dist/ngx-liburg
-      - run: npm run semantic-release
+      - run: npm publish
         env:
           NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
