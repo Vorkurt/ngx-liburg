@@ -17,7 +17,7 @@
       "pkgRoot": "dist/ngx-liburg"
     }],
     ["@semantic-release/git", {
-      "assets": ["projects/ngx-liburg/package.json", "npm-shrinkwrap.json"],
+      "assets": ["projects/ngx-liburg/package.json", "projects/ngx-liburg/npm-shrinkwrap.json"],
       "tarballDir": "dist/ngx-liburg",
       "pkgRoot": "dist/ngx-liburg"
     }]
