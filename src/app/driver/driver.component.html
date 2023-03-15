@@ -1,4 +1,4 @@
-<div *ngIf="isLoading | async" class="driver-table-wrapper">
+<div class="driver-table-wrapper">
   <elix-table
     (onAddEntry)="newEntry()"
     (onPaginationChange)="changePage($event)"
@@ -49,8 +49,4 @@
       name="ACTION FIELD"
     ></elix-column-icon-action>
   </elix-table>
-</div>
-
-<div *ngIf="!(isLoading | async)">
-  <lib-spinner></lib-spinner>
 </div>

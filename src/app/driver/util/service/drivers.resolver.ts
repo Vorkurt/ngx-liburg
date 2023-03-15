@@ -4,7 +4,6 @@ import {
   Resolve,
   RouterStateSnapshot
 } from '@angular/router';
-import { SpinnerService } from 'ngx-liburg-icon';
 import { DriverService } from "./driver.service";
 
 @Injectable({
@@ -13,9 +12,7 @@ import { DriverService } from "./driver.service";
 export class DriversResolver implements Resolve<void> {
   constructor(
     private readonly _driverService: DriverService,
-    private readonly _spinnerService: SpinnerService,
   ){
-    this._spinnerService.sendValue(false);
   }
 
   resolve(
