@@ -7,8 +7,18 @@
     "build": "ng build ngx-liburg",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "semantic-release": "semantic-release --branches main"
+    "semantic-release": "semantic-release --branches beta"
   },
+  "plugins": [
+    "@semantic-release/commit-analyzer",
+    "@semantic-release/release-notes-generator",
+    ["@semantic-release/npm", {
+      "pkgRoot": "dist/ngx-liburg"
+    }],
+    ["@semantic-release/git", {
+      "assets": ["package.json", "npm-shrinkwrap.json"]
+    }]
+  ],
   "private": false,
   "dependencies": {
     "@angular/animations": "^14.0.0",
