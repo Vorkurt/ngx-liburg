@@ -19,8 +19,7 @@
           "options": {
             "optimization": false,
             "sourceMap": true,
-            "baseHref": "/ngx-liburg/",
-            "outputPath": "dist/ngx-liburgs",
+            "baseHref": "/",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
