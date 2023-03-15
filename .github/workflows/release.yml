@@ -110,8 +110,8 @@ jobs:
         with:
           name: build
           path: /tmp/build
+      - name: "show tmp"
         run: ls -la /tmp/build
-
       - name: "📂 copy static app"
         run: cp -R /tmp/build ./build
 
