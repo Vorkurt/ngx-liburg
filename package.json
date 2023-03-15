@@ -1,6 +1,6 @@
 {
   "name": "ngx-liburgs",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -12,15 +12,24 @@
   "plugins": [
     "@semantic-release/commit-analyzer",
     "@semantic-release/release-notes-generator",
-    ["@semantic-release/npm", {
-      "tarballDir": "dist/ngx-liburg",
-      "pkgRoot": "dist/ngx-liburg"
-    }],
-    ["@semantic-release/git", {
-      "assets": ["projects/ngx-liburg/package.json", "projects/ngx-liburg/npm-shrinkwrap.json"],
-      "tarballDir": "dist/ngx-liburg",
-      "pkgRoot": "dist/ngx-liburg"
-    }]
+    [
+      "@semantic-release/npm",
+      {
+        "tarballDir": "dist/ngx-liburg",
+        "pkgRoot": "dist/ngx-liburg"
+      }
+    ],
+    [
+      "@semantic-release/git",
+      {
+        "assets": [
+          "projects/ngx-liburg/package.json",
+          "projects/ngx-liburg/npm-shrinkwrap.json"
+        ],
+        "tarballDir": "dist/ngx-liburg",
+        "pkgRoot": "dist/ngx-liburg"
+      }
+    ]
   ],
   "private": false,
   "dependencies": {
