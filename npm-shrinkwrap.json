@@ -20,6 +20,7 @@
         "@angular/router": "^14.0.0",
         "@ngrx/store": "^14.0.2",
         "@supabase/supabase-js": "^1.35.6",
+        "ngx-liburg": "^0.4.1",
         "ngx-liburg-icon": "^0.0.18",
         "ngx-toastr": "^15.0.0",
         "reset-css": "^5.0.1",
@@ -11442,6 +11443,19 @@
       "dev": true,
       "dependencies": {
         "tslib": "^2.1.0"
+      }
+    },
+    "node_modules/ngx-liburg": {
+      "version": "0.4.1",
+      "resolved": "https://registry.npmjs.org/ngx-liburg/-/ngx-liburg-0.4.1.tgz",
+      "integrity": "sha512-9iaT/9y9JOZsTO5xGj+Q2PvEpO69MuxYbaNSMttGERJTwMmSa6DnOjAIiD0nwmWzTwUoc6YPG/GFUXnnw/qpTg==",
+      "dependencies": {
+        "tslib": "^2.3.0"
+      },
+      "peerDependencies": {
+        "@angular/common": "^14.0.0",
+        "@angular/core": "^14.0.0",
+        "@angular/material": "^14.2.7"
       }
     },
     "node_modules/ngx-liburg-icon": {
@@ -28190,6 +28204,14 @@
             "tslib": "^2.1.0"
           }
         }
+      }
+    },
+    "ngx-liburg": {
+      "version": "0.4.1",
+      "resolved": "https://registry.npmjs.org/ngx-liburg/-/ngx-liburg-0.4.1.tgz",
+      "integrity": "sha512-9iaT/9y9JOZsTO5xGj+Q2PvEpO69MuxYbaNSMttGERJTwMmSa6DnOjAIiD0nwmWzTwUoc6YPG/GFUXnnw/qpTg==",
+      "requires": {
+        "tslib": "^2.3.0"
       }
     },
     "ngx-liburg-icon": {
