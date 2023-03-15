@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build ngx-liburg",
+    "build:m":  "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "semantic-release": "semantic-release --branches beta"
