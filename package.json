@@ -13,10 +13,13 @@
     "@semantic-release/commit-analyzer",
     "@semantic-release/release-notes-generator",
     ["@semantic-release/npm", {
+      "tarballDir": "dist/ngx-liburg",
       "pkgRoot": "dist/ngx-liburg"
     }],
     ["@semantic-release/git", {
-      "assets": ["package.json", "npm-shrinkwrap.json"]
+      "assets": ["projects/ngx-liburg/package.json", "npm-shrinkwrap.json"],
+      "tarballDir": "dist/ngx-liburg",
+      "pkgRoot": "dist/ngx-liburg"
     }]
   ],
   "private": false,
