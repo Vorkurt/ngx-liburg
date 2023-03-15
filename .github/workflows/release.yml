@@ -42,7 +42,7 @@ jobs:
         env:
           PACKAGEJSON_DIR: 'projects/ngx-liburg'
         with:
-          commit-message: 'CI 🤖: bumps version to {{version}} [skip ci]'
+          commit-message: '🤖 : bumps version to {{version}} [skip ci] [CI]'
       - run: npm run-script build
       - run: cd dist/ngx-liburg && npm publish
         env:
