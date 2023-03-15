@@ -4,6 +4,7 @@ import { Observable, Subject } from "rxjs";
 import { Driver, Pagination } from "../interfaces";
 import { LocalStorageService } from "./local-storage.service";
 
+
 @Injectable({
   providedIn: "root",
 })
@@ -23,13 +24,8 @@ export class DriverService {
   }
 
   public getDataDriver(requestData: Pagination = { items: 10, page: 1 }): void{
-    this._httpClient.get<Driver[]>(
-      `${ this.environment.api }/driver/description/${ requestData.items }/${ requestData.page }`,
-      { headers: this.header },
-    )
-      .subscribe(resp => {
-        this.driverData.next(resp);
-      });
+    this.driverData.next([]);
+
   }
 
   public patchDataDriver(row: Driver): Observable<Driver>{
