@@ -41,6 +41,8 @@ jobs:
         uses: phips28/gh-action-bump-version@v9.0.16
         env:
           PACKAGEJSON_DIR: 'projects/ngx-liburg'
+        with:
+          commit-message: 'CI 🤖: bumps version to {{version}} [skip ci]'
       - run: npm run-script build
       - run: cd dist/ngx-liburg && npm publish
         env:
