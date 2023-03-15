@@ -1,6 +1,5 @@
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Inject, Injectable } from "@angular/core";
-import { SpinnerService } from "ngx-liburg-icon";
 import { Observable, Subject } from "rxjs";
 import { Driver, Pagination } from "../interfaces";
 import { LocalStorageService } from "./local-storage.service";
@@ -15,7 +14,6 @@ export class DriverService {
   constructor(
     private readonly _httpClient: HttpClient,
     private readonly _localStorage: LocalStorageService,
-    private readonly _spinnerService: SpinnerService,
     @Inject("env") private environment: any){
     let tokenFromLocalStorage = _localStorage.geItem("token");
     this.header = new HttpHeaders().set(
@@ -30,7 +28,6 @@ export class DriverService {
       { headers: this.header },
     )
       .subscribe(resp => {
-        this._spinnerService.sendValue(true);
         this.driverData.next(resp);
       });
   }
