@@ -1,6 +1,6 @@
 {
   "name": "ngx-liburg",
-  "version": "0.1.4",
+  "version": "0.2.4",
   "peerDependencies": {
     "@angular/common": "^15.1.0",
     "@angular/core": "^15.1.0",

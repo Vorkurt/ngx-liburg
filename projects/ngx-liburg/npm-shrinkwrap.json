@@ -1,19 +1,19 @@
 {
   "name": "ngx-liburg",
-  "version": "0.1.4",
+  "version": "0.2.4",
   "lockfileVersion": 2,
   "requires": true,
   "packages": {
     "": {
       "name": "ngx-liburg",
-      "version": "0.1.4",
+      "version": "0.2.4",
       "dependencies": {
         "tslib": "^2.3.0"
       },
       "peerDependencies": {
-        "@angular/common": "^14.0.0",
-        "@angular/core": "^14.0.0",
-        "@angular/material": "^14.0.5"
+        "@angular/common": "^15.1.0",
+        "@angular/core": "^15.1.0",
+        "@angular/material": "^15.1.0"
       }
     },
     "node_modules/@angular/animations": {
@@ -217,8 +217,7 @@
       }
     },
     "@angular/material": {
-      "version": "14.2.3",
-      "resolved": "https://registry.npmjs.org/@angular/material/-/material-14.2.3.tgz",
+      "version": "https://registry.npmjs.org/@angular/material/-/material-14.2.3.tgz",
       "integrity": "sha512-25MjTXE3XBfDjsDh1+CH13o8q1fhC6QiRdzB/0soDAn6NLi3dGlH7at68WFrt894kvXwBC37sM0A2VE6J2mk1A==",
       "peer": true,
       "requires": {

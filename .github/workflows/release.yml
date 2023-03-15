@@ -1,4 +1,4 @@
-name: Node.js CI
+name: Release
 
 on:
   push:
@@ -28,6 +28,7 @@ jobs:
     if: ${{ github.ref == 'refs/heads/beta' }}
     needs: [quality]
     steps:
+
       - name: Set up authentication token
         run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_AUTH_TOKEN }}" > ~/.npmrc
       - uses: actions/checkout@v2
@@ -36,7 +37,12 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm ci
-      - run: cd projects/ngx-liburg && npm version minor
+      - name: Automated Version Bump
+        uses: phips28/gh-action-bump-version@v9.0.16
+        env:
+          PACKAGEJSON_DIR: 'projects/ngx-liburg'
+        with:
+          commit-message: '🤖: bumps version to {{version}} [skip ci] [CI]'
       - run: npm run-script build
       - run: cd dist/ngx-liburg && npm publish
         env:

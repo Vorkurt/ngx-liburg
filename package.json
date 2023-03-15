@@ -1,14 +1,36 @@
 {
   "name": "ngx-liburgs",
-  "version": "0.0.2",
+  "version": "0.0.5",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build ngx-liburg",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "semantic-release": "semantic-release --branches main"
+    "semantic-release": "semantic-release --branches beta"
   },
+  "plugins": [
+    "@semantic-release/commit-analyzer",
+    "@semantic-release/release-notes-generator",
+    [
+      "@semantic-release/npm",
+      {
+        "tarballDir": "dist/ngx-liburg",
+        "pkgRoot": "dist/ngx-liburg"
+      }
+    ],
+    [
+      "@semantic-release/git",
+      {
+        "assets": [
+          "projects/ngx-liburg/package.json",
+          "projects/ngx-liburg/npm-shrinkwrap.json"
+        ],
+        "tarballDir": "dist/ngx-liburg",
+        "pkgRoot": "dist/ngx-liburg"
+      }
+    ]
+  ],
   "private": false,
   "dependencies": {
     "@angular/animations": "^14.0.0",
