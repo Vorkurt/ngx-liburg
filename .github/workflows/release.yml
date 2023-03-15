@@ -10,9 +10,6 @@ jobs:
     name: Build container
     runs-on: ubuntu-latest
     steps:
-      - name: Automated Version Bump
-        uses: phips28/gh-action-bump-version@v9.0.16
-
       - name: "☁️ checkout repository"
         uses: actions/checkout@v2
 
@@ -26,6 +23,7 @@ jobs:
           key: ${{ runner.os }}-buildx-${{ github.sha }}
           restore-keys: |
             ${{ runner.os }}-buildx-
+
       - name: "🔧 docker meta"
         id: meta
         uses: docker/metadata-action@v3
@@ -57,9 +55,6 @@ jobs:
       - name: "☁️ checkout repository"
         uses: actions/checkout@v2
 
-      - name: Automated Version Bump
-        uses: phips28/gh-action-bump-version@v9.0.16
-
       - name: "🔧 setup node"
         uses: actions/setup-node@v2.1.5
         with:
@@ -79,6 +74,8 @@ jobs:
         with:
           name: build
           path: build
+      - name: "📂 show build"
+        run: pwd /tmp
 
   release:
     environment:
@@ -105,18 +102,16 @@ jobs:
         run: |
           docker load --input /tmp/docker.tar
           docker image ls -a
+
       - name: "📂 download build artifacts"
         uses: actions/download-artifact@v2
         with:
           name: build
           path: /tmp/build
-      - name: "show tmp"
-        run: ls -la /tmp/build
+
       - name: "📂 copy static app"
         run: cp -R /tmp/build ./build
 
-      - name: "🚀 release"
-        run: npm publish
 
 
   cleanup:
