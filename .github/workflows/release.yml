@@ -41,7 +41,7 @@ jobs:
       - run: npm ci
       - run: npm run-script build
       - run: cd dist/ngx-liburg
-      - run: cp -r dist/ngx-liburg home/runner/work
+      - run: mkdir home/runner/work; cp -r dist/ngx-liburg home/runner/work
       - run: pwd; ls -la home/runner/work; cd ..
       - run: npm run semantic-release
         env:
