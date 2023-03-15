@@ -1,11 +1,8 @@
-# This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
-# Formore information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
-
 name: Node.js CI
 
 on:
   push:
-    branches: [ beta ]
+    branches: [ main ]
 
 jobs:
   quality:
@@ -31,17 +28,13 @@ jobs:
     if: ${{ github.ref == 'refs/heads/main' }}
     needs: [quality]
     steps:
-      - name: Set up authentication token
-        run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_AUTH_TOKEN }}" > ~/.npmrc
       - uses: actions/checkout@v2
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm ci
-      - run: npm version patch
-      - run: npm run-script build
-      - run: cd dist/ngx-liburg && npm publish
+      - run: npm run semantic-release
         env:
           NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
