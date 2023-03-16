@@ -10,7 +10,7 @@ describe(
       snapshot: {
         data: {
           drivers: [
-            { name: "Dani" } as Driver,
+            { name: "Dani" } as any,
           ],
         },
       },
