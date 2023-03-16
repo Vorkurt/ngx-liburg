@@ -1,13 +1,17 @@
 import { Location } from "@angular/common";
-import { Component, OnDestroy, OnInit } from "@angular/core";
+import { Component, OnDestroy, OnInit, ViewChild } from "@angular/core";
 import { PageEvent } from "@angular/material/paginator";
 import { ActivatedRoute } from "@angular/router";
 
 import { BehaviorSubject, Subject } from "rxjs";
 import { Driver } from "./util";
 import { DriverService } from "./util/service/driver.service";
-import { delay, takeUntil } from "rxjs/operators";
-import { DataSourceMaterialTable, IActionMaterialColumn } from "ngx-liburg";
+import { takeUntil } from "rxjs/operators";
+import {
+  DataSourceMaterialTable,
+  IActionMaterialColumn,
+  TableComponent
+} from "ngx-liburg";
 
 let mock = [
   {
@@ -161,12 +165,14 @@ let mock = [
     }
   }
 ] as any
+
 @Component({
   selector: "lib-driver",
   templateUrl: "./driver.component.html",
   styleUrls: [ "./driver.component.scss" ],
 })
 export class DriverComponent implements OnInit, OnDestroy {
+  @ViewChild(TableComponent) elixTable: TableComponent<any> | undefined;
   public dataSourceDrivers: Driver[] | any;
   public isLoading: BehaviorSubject<boolean> | undefined;
 
@@ -207,8 +213,8 @@ export class DriverComponent implements OnInit, OnDestroy {
     emptyEntry.editable = true;
     emptyEntry.actions = this._actionTableListDriver();
     this._initDriver(emptyEntry);
-    this.dataSourceDrivers = [ ...this.dataSourceDrivers,
-      emptyEntry ];
+    this.dataSourceDrivers.push(emptyEntry)
+    this.elixTable?.table.renderRows()
   }
 
   private _initDriver(emptyEntry: any): void{
@@ -223,6 +229,7 @@ export class DriverComponent implements OnInit, OnDestroy {
     emptyEntry.model.location.city = "";
     emptyEntry.model.location.zipCode = "";
     emptyEntry.model.location.phone = "";
+    emptyEntry.model.id = this.dataSourceDrivers.length
     emptyEntry.isNew = true;
   }
 
@@ -245,6 +252,7 @@ export class DriverComponent implements OnInit, OnDestroy {
               this._destroyed$))
               .subscribe();
           }
+          this.elixTable?.table.renderRows()
         },
       },
     ] as IActionMaterialColumn[];

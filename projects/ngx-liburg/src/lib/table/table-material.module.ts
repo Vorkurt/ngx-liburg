@@ -62,6 +62,8 @@ import {
   DragDropModule
 } from '@angular/cdk/drag-drop';
 import { ActionComponent } from './columns/action/action.component';
+import { TotalAmountPipe } from './columns/utils/pipe/total-amount.pipe';
+import { FooterAmountComponent } from './components/footer-amount/footer-amount.component';
 
 @NgModule({
   declarations: [
@@ -74,6 +76,8 @@ import { ActionComponent } from './columns/action/action.component';
     ColumnSelectComponent,
     ColumnTwoCasesComponent,
     ActionComponent,
+    TotalAmountPipe,
+    FooterAmountComponent,
   ],
   imports: [
     CommonModule,
