@@ -93,6 +93,9 @@ export class TableComponent<T> implements AfterViewInit, OnDestroy {
   @Input()
   public footerLabel: string = '';
 
+  @Input()
+  public footerColumn: string =''
+
   // new table in row
   @Input()
   // @ts-ignore
@@ -159,7 +162,7 @@ export class TableComponent<T> implements AfterViewInit, OnDestroy {
         rep));
     this._makeRotationAction();
     this.totalAmount = this.dataSource.map((column: any) => {
-      return column.model.id
+      return column.model[this.footerColumn]
     }).reduce((acc, value) => acc + value, 0)
 
     try {

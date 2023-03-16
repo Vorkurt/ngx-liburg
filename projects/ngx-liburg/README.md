@@ -106,5 +106,6 @@ this.dataSource = this.list.map(resp => {
 # Footer 
   Flag to show  `FooterAmount` on the table state
   Label footer to custom
+  FooterColumn send what column you want to make reduce
 
 # and enjoy at this beautiful library
