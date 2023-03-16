@@ -117,9 +117,6 @@ export class TableComponent<T> implements AfterViewInit, OnDestroy {
   footerAmount: any = false;
 
   @Input()
-  filterTooltip: boolean = true;
-
-  @Input()
   public addedNewEntry = false;
 
   @Output() public onAddEntry: EventEmitter<any> = new EventEmitter<any>();
@@ -127,6 +124,8 @@ export class TableComponent<T> implements AfterViewInit, OnDestroy {
   @Output() public onPaginationChange: EventEmitter<PageEvent> =
     new EventEmitter<PageEvent>();
 
+  @Input()
+  filterTooltip: boolean = true;
   // this is where the magic happens:
   // @ts-ignore
   @ViewChild(MatTable, { static: true }) table: MatTable<T>;
