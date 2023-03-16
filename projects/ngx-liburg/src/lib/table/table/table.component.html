@@ -17,9 +17,10 @@
   <!-- Footer for tabel -->
   <ng-container *ngIf="footerShow">
     <mat-footer-row
-      [class]="footerMessageClass"
+      mat-footer-row
       *matFooterRowDef="columnsToDispaly"
-      [attr.colspan]="columnsToDispaly.length"
+      [attr.colspan]="1"
+      [class]="footerMessageClass"
     >
     </mat-footer-row>
   </ng-container>
@@ -55,6 +56,11 @@
     ></mat-row>
   </ng-container>
 </mat-table>
+<ng-container *ngIf="footerAmount">
+  <lib-footer-amount [amount]="totalAmount" [label]="footerLabel">
+
+  </lib-footer-amount>
+</ng-container>
 <div class="new" *ngIf="addedNewEntry" (click)="addNewEntry()">
   <mat-icon
     [svgIcon]="'fa_solid:circle-plus'"

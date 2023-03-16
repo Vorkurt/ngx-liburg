@@ -21,10 +21,9 @@ elix-table {
   }
 
   mat-row {
-    box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
+    border:  0.0625rem solid rgba(0, 0, 0, 0.15);
     transition: all ease-in-out .1s;
     min-height: 32px;
-    border: 0.2px solid;
     position: relative;
 
     height: max-content;

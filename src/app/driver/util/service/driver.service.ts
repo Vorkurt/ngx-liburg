@@ -4,7 +4,6 @@ import { Observable, Subject } from "rxjs";
 import { Driver, Pagination } from "../interfaces";
 import { LocalStorageService } from "./local-storage.service";
 
-
 @Injectable({
   providedIn: "root",
 })
@@ -37,7 +36,6 @@ export class DriverService {
   }
 
   public addNewDriver(row: any): Observable<Driver>{
-    debugger
     row.firstName = row.name;
     row.lastName = "";
     return this._httpClient.post<Driver>(
