@@ -103,5 +103,8 @@ this.dataSource = this.list.map(resp => {
       </elix-table>
     </div>
 
+# Footer 
+  Flag to show  `FooterAmount` on the table state
+  Label footer to custom
 
 # and enjoy at this beautiful library
