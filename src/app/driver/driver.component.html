@@ -6,6 +6,8 @@
     [dataSource]="dataSourceDrivers"
     [lenghtPagination]="dataSourceDrivers?.length"
     [showPagination]="true"
+    [footerAmount]="true"
+    [footerLabel]="'Total'"
   >
 
     <elix-column-text
@@ -13,6 +15,7 @@
       className="test"
       field="dataOfBirth"
       name="DataOfBirth"
+      [footerMessage]="'Total'"
     ></elix-column-text>
     <elix-column-text
       [editRow]="true"
@@ -37,6 +40,13 @@
       field="email"
       name="Email"
     ></elix-column-text>
+    <elix-column-number
+      [editRow]="true"
+      className="test"
+      field="id"
+      name="Cost"
+      [footerMessage]="'Total'">
+    </elix-column-number>
     <elix-column-icon-action
       className="action2"
       field="action2"

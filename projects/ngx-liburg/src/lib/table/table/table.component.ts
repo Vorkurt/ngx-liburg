@@ -90,6 +90,9 @@ export class TableComponent<T> implements AfterViewInit, OnDestroy {
   @Input()
   public footerMessageClass: string = '';
 
+  @Input()
+  public footerLabel: string = '';
+
   // new table in row
   @Input()
   // @ts-ignore
@@ -107,6 +110,11 @@ export class TableComponent<T> implements AfterViewInit, OnDestroy {
   @Input()
   // @ts-ignore
   public paginationClass: string;
+  @Input()
+  footerAmount: any = false;
+
+  @Input()
+  filterTooltip: boolean = true;
 
   @Input()
   public addedNewEntry = false;
@@ -116,9 +124,6 @@ export class TableComponent<T> implements AfterViewInit, OnDestroy {
   @Output() public onPaginationChange: EventEmitter<PageEvent> =
     new EventEmitter<PageEvent>();
 
-
-  @Input()
-  filterTooltip: boolean = true;
   // this is where the magic happens:
   // @ts-ignore
   @ViewChild(MatTable, { static: true }) table: MatTable<T>;
@@ -131,6 +136,7 @@ export class TableComponent<T> implements AfterViewInit, OnDestroy {
   // after the <ng-content> has been initialized, the column definitions are available.
   public columnDefs: QueryList<BaseColumn>;
   public columnsToDispaly: string[] = [];
+  public totalAmount: number = 0;
 
   private doubleColumnToDisplay: string[] = [];
   // for avoid memory leak
@@ -151,16 +157,11 @@ export class TableComponent<T> implements AfterViewInit, OnDestroy {
       .map((resp: BaseColumn) => resp.columnDef)
       .forEach((rep: MatColumnDef) => this.table.addColumnDef(
         rep));
-    this._columnRotate.rotate$.pipe(takeUntil(this._destroyed)).subscribe((side: string) => {
-      if (
-        side.includes('left')
-      ) {
-        this.rotateColumn('left');
+    this._makeRotationAction();
+    this.totalAmount = this.dataSource.map((column: any) => {
+      return column.model.id
+    }).reduce((acc, value) => acc + value, 0)
 
-      } else {
-        this.rotateColumn('right');
-      }
-    })
     try {
       const duplicate = this.columnsToDispaly.filter(
         (
@@ -198,6 +199,19 @@ export class TableComponent<T> implements AfterViewInit, OnDestroy {
     this.table.renderRows();
   }
 
+  private _makeRotationAction(){
+    this._columnRotate.rotate$.pipe(takeUntil(this._destroyed)).subscribe((side: string) => {
+      if (
+        side.includes('left')
+      ) {
+        this.rotateColumn('left');
+
+      } else {
+        this.rotateColumn('right');
+      }
+    })
+  }
+
   private rotateColumn(side: string){
     if ( side === 'left' ) {
       this._rotateLeft();
@@ -228,7 +242,9 @@ export class TableComponent<T> implements AfterViewInit, OnDestroy {
 
 
   private _setColumnForLayout(){
-    this._tableState.responsive(this.columnsToDispaly, this.doubleColumnToDisplay)
+    this._tableState.responsive(
+      this.columnsToDispaly,
+      this.doubleColumnToDisplay)
     this._tableState.columnDisplay$.pipe(takeUntil(this._destroyed)).subscribe(
       columns => {
         this.columnsToDispaly = columns
