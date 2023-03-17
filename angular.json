@@ -129,8 +129,8 @@
           "options": {
             "karmaConfig": "src/karma.conf.js",
             "tsConfig": "projects/ngx-liburg/tsconfig.spec.json",
-            "polyfills": "src/polyfills.ts",
-            "main": "src/test.ts"
+            "polyfills": "projects/ngx-liburg/src/polyfills.ts",
+            "main": "projects/ngx-liburg/src/test.ts"
           }
         }
       }
