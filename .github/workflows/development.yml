@@ -12,12 +12,10 @@ jobs:
 
       - name: "☁️ checkout repository"
         uses: actions/checkout@v2
-
       - name: "🔧 setup node"
         uses: actions/setup-node@v2.1.5
         with:
           node-version: 14
-
       - name: "🔧 setup cache"
         uses: actions/cache@v2
         with:
@@ -27,10 +25,8 @@ jobs:
             ${{ runner.os }}-node-
       - name: "🔧 install npm@8"
         run: npm i -g npm@8
-
       - name: "📦 install dependencies"
         run: npm install
-
       - name: "🚀 static app"
         run: npm run build
       - name: "🚀 Test"
