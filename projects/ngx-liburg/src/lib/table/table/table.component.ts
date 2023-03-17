@@ -135,9 +135,7 @@ export class TableComponent<T> implements AfterViewInit, OnDestroy {
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   @ContentChildren(BaseColumn)
-  // @ts-ignore
-  // after the <ng-content> has been initialized, the column definitions are available.
-  public columnDefs: QueryList<BaseColumn>;
+  public columnDefs: QueryList<BaseColumn> | any;
   public columnsToDispaly: string[] = [];
   public totalAmount: number = 0;
 

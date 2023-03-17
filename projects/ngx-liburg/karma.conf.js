@@ -14,6 +14,7 @@ module.exports = function (config) {
     ],
     client: {
       jasmine: {
+        random: true
         // you can add configuration options for Jasmine here
         // the possible options are listed at https://jasmine.github.io/api/edge/Configuration.html
         // for example, you can disable the random execution with `random: false`
@@ -28,8 +29,8 @@ module.exports = function (config) {
       dir: require('path').join(__dirname, '../../coverage/ngx-liburg'),
       subdir: '.',
       reporters: [
-        { type: 'html' },
-        { type: 'text-summary' }
+        {type: 'html'},
+        {type: 'text-summary'}
       ]
     },
     reporters: ['progress', 'kjhtml'],
