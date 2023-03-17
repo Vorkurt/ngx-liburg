@@ -20,6 +20,10 @@ elix-table {
     }
   }
 
+  .zebra{
+    background-color: #eee;
+  }
+
   mat-row {
     border:  0.0625rem solid rgba(0, 0, 0, 0.15);
     transition: all ease-in-out .1s;
