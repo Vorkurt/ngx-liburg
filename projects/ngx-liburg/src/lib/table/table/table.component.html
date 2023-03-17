@@ -1,4 +1,7 @@
-<mat-table mat-table [dataSource]="dataSource" multiTemplateDataRows="true" cdkDropList [cdkDropListData]="dataSource"
+<mat-table mat-table [dataSource]="dataSource"
+           multiTemplateDataRows="true"
+           cdkDropList
+           [cdkDropListData]="dataSource"
            [ngStyle]="{'box-shadow': addedNewEntry ? 'none': ''}"
            (cdkDropListDropped)="drop($event)">
   <ng-content></ng-content>
@@ -11,8 +14,9 @@
   <mat-row
     mat-row
     cdkDrag
-    *matRowDef="let row; columns: columnsToDispaly"
+    *matRowDef="let row; columns: columnsToDispaly;"
     class="gap-1 header-border-left"
+    [ngClass]="{'zebra': rowOdd(row) % 2 === 0 && zebraColor }"
   ></mat-row>
   <!-- Footer for tabel -->
   <ng-container *ngIf="footerShow">
