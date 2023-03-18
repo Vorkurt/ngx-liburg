@@ -1,0 +1,11 @@
+.example-detail-row {
+  min-height: 0 !important;
+
+  mat-cell {
+    min-height: inherit;
+
+    .mat-form-field-infix {
+      width: auto !important;
+    }
+  }
+}

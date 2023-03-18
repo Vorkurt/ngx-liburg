@@ -1,0 +1,27 @@
+<ng-container matColumnDef="extensibleData">
+  <mat-cell
+    *matCellDef="let element"
+    [attr.colspan]="columnsToDispaly.length"
+    class="overflow-hidden"
+  >
+    <div
+      [@detailExpand]="
+            element === (extandble$ | async) ? 'expanded' : 'collapsed'
+          "
+      class="elix__table"
+    >
+      <ng-container
+        *ngTemplateOutlet="
+              newElementExtandble;
+              context: { $implicit: element }
+            "
+      >
+      </ng-container>
+    </div>
+  </mat-cell>
+</ng-container>
+
+<mat-row
+  *matRowDef="let row; columns: ['extensibleData']"
+  class="example-detail-row gap-1 header-border-left"
+></mat-row>

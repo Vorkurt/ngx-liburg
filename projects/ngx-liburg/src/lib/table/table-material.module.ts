@@ -36,6 +36,7 @@ import { TotalAmountPipe } from './columns/utils/pipe/total-amount.pipe';
 import {
   FooterAmountComponent
 } from './components/footer-amount/footer-amount.component';
+import { ExtensibleTableComponent } from './table/components/extensible-table/extensible-table.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import {
     ActionComponent,
     TotalAmountPipe,
     FooterAmountComponent,
+    ExtensibleTableComponent,
   ],
   imports: [
     CommonModule,

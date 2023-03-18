@@ -95,18 +95,6 @@ elix-table {
   .mat-form-field-infix {
     width: auto;
   }
-
-  .example-detail-row {
-    min-height: 0 !important;
-
-    mat-cell {
-      min-height: inherit;
-
-      .mat-form-field-infix {
-        width: auto !important;
-      }
-    }
-  }
 }
 
 .cdk-drop-list-dragging .cdk-drag {

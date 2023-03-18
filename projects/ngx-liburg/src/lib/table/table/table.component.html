@@ -1,4 +1,5 @@
-<mat-table mat-table [dataSource]="dataSource"
+<mat-table mat-table
+           [dataSource]="dataSource"
            multiTemplateDataRows="true"
            cdkDropList
            [cdkDropListData]="dataSource"
@@ -32,33 +33,8 @@
 
   <!--  Extanble-->
   <ng-container *ngIf="extensible">
-    <ng-container matColumnDef="extensibleData">
-      <mat-cell
-        *matCellDef="let element"
-        [attr.colspan]="columnsToDispaly.length"
-        class="overflow-hidden"
-      >
-        <div
-          [@detailExpand]="
-            element === (extandble$ | async) ? 'expanded' : 'collapsed'
-          "
-          class="elix__table"
-        >
-          <ng-container
-            *ngTemplateOutlet="
-              newElementExtandble;
-              context: { $implicit: element }
-            "
-          >
-          </ng-container>
-        </div>
-      </mat-cell>
-    </ng-container>
-
-    <mat-row
-      *matRowDef="let row; columns: ['extensibleData']"
-      class="example-detail-row gap-1 header-border-left"
-    ></mat-row>
+    <lib-extensible-table [columnsToDispaly]="columnsToDispaly" [extandble$]="extandble$"
+                          [newElementExtandble]="newElementExtandble"></lib-extensible-table>
   </ng-container>
 </mat-table>
 <ng-container *ngIf="footerAmount">
