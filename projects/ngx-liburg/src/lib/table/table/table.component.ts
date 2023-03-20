@@ -94,7 +94,10 @@ export class TableComponent<T> implements AfterViewInit, OnDestroy {
   public footerLabel: string = '';
 
   @Input()
-  public footerColumn: string =''
+  public zebraColor: boolean = false;
+
+  @Input()
+  public footerColumn: string = ''
 
   // new table in row
   @Input()
@@ -159,7 +162,7 @@ export class TableComponent<T> implements AfterViewInit, OnDestroy {
         rep));
     this._makeRotationAction();
     this.totalAmount = this.dataSource.map((column: any) => {
-      return column.model[this.footerColumn]
+      return column.model[ this.footerColumn ]
     }).reduce((acc, value) => acc + value, 0)
 
     try {
@@ -197,6 +200,10 @@ export class TableComponent<T> implements AfterViewInit, OnDestroy {
       event.previousIndex,
       event.currentIndex);
     this.table.renderRows();
+  }
+
+  rowOdd(row: DataSourceMaterialTable<T>){
+    return this.dataSource.indexOf(row)
   }
 
   private _makeRotationAction(){
@@ -239,7 +246,6 @@ export class TableComponent<T> implements AfterViewInit, OnDestroy {
     }
     this.doubleColumnToDisplay[ 0 ] = intermediateColumn
   }
-
 
   private _setColumnForLayout(){
     this._tableState.responsive(

@@ -1,30 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TableComponent } from './table.component';
-import { Component } from "@angular/core";
+import { MatTableModule } from "@angular/material/table";
+import { DragDropModule } from "@angular/cdk/drag-drop";
 
-
-@Component({
-  selector: 'app-base',
-  template: '<ng-content></ng-content> test'
-})
-
-class AppBase {
-
-}
-
-@Component({
-  template: `
-      <app-base></app-base>
-      <app-base></app-base>
-      <app-base></app-base>
-
-  `
-})
-
-class BaseColumn {
-
-}
 
 describe('TableComponent', () => {
   let component: TableComponent<any>;
@@ -32,18 +11,33 @@ describe('TableComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TableComponent, BaseColumn, AppBase ],
+      imports: [ MatTableModule, DragDropModule
+      ],
+      declarations: [ TableComponent ],
     }).compileComponents();
   });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(TableComponent);
     component = fixture.componentInstance;
-    component.dataSource = [{model: {} as any} as any, {model: {} as any} as any]
+    component.dataSource = [ { model: {} as any } as any,
+      { model: {} as any } as any ]
+    component.zebraColor = true
     fixture.detectChanges();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should zebra be in class list ', () => {
+    const elementRow = fixture.nativeElement.querySelector('[ data-test="mat-row-def"]' )
+    expect(elementRow.classList).toContain('zebra')
+  })
+  it('should not zebra be in class list ', () => {
+    const elementRow = fixture.nativeElement.querySelector('[ data-test="mat-row-def"]' )
+    component.zebraColor = false
+    fixture.detectChanges()
+    expect(elementRow.classList).not.toContain('zebra')
+  })
 });
