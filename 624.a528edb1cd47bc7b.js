@@ -322,8 +322,8 @@ class DriverComponent {
         }
       },
       decls: 10,
-      vars: 15,
-      consts: [[1, "driver-table-wrapper"], [3, "addedNewEntry", "dataSource", "lenghtPagination", "showPagination", "footerAmount", "footerLabel", "footerColumn", "onAddEntry", "onPaginationChange"], ["className", "test", "field", "dataOfBirth", "name", "DataOfBirth", 3, "editRow", "footerMessage"], ["className", "fullName", "field", "name", "name", "Name", 3, "editRow"], ["className", "driverLicense", "field", "description", "name", "Description"], ["className", "license", "field", "license", "name", "License", 3, "editRow"], ["className", "email", "field", "email", "name", "Email", 3, "editRow"], ["className", "test", "field", "id", "name", "Cost", 3, "editRow", "footerMessage"], ["className", "action2", "field", "action2", "name", "ACTION FIELD"], ["className", "action", "field", "action", "name", "ACTION FIELD", 3, "iconAction"]],
+      vars: 16,
+      consts: [[1, "driver-table-wrapper"], [3, "addedNewEntry", "dataSource", "lenghtPagination", "showPagination", "footerAmount", "footerLabel", "footerColumn", "zebraColor", "onAddEntry", "onPaginationChange"], ["className", "test", "field", "dataOfBirth", "name", "DataOfBirth", 3, "editRow", "footerMessage"], ["className", "fullName", "field", "name", "name", "Name", 3, "editRow"], ["className", "driverLicense", "field", "description", "name", "Description"], ["className", "license", "field", "license", "name", "License", 3, "editRow"], ["className", "email", "field", "email", "name", "Email", 3, "editRow"], ["className", "test", "field", "id", "name", "Cost", 3, "editRow", "footerMessage"], ["className", "action2", "field", "action2", "name", "ACTION FIELD"], ["className", "action", "field", "action", "name", "ACTION FIELD", 3, "iconAction"]],
       template: function DriverComponent_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "div", 0)(1, "elix-table", 1);
@@ -338,7 +338,7 @@ class DriverComponent {
 
         if (rf & 2) {
           _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](1);
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("addedNewEntry", true)("dataSource", ctx.dataSourceDrivers)("lenghtPagination", ctx.dataSourceDrivers == null ? null : ctx.dataSourceDrivers.length)("showPagination", true)("footerAmount", true)("footerLabel", "Total")("footerColumn", "id");
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("addedNewEntry", true)("dataSource", ctx.dataSourceDrivers)("lenghtPagination", ctx.dataSourceDrivers == null ? null : ctx.dataSourceDrivers.length)("showPagination", true)("footerAmount", true)("footerLabel", "Total")("footerColumn", "id")("zebraColor", true);
           _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](1);
           _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("editRow", true)("footerMessage", "Total");
           _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](1);
@@ -395,7 +395,7 @@ class DriverModule {
   }
   static {
     this.ɵinj = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineInjector"]({
-      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_3__.CommonModule, _driver_routing_module__WEBPACK_IMPORTED_MODULE_0__.DriverRoutingModule, ngx_liburg__WEBPACK_IMPORTED_MODULE_4__.TableMaterialModule]
+      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_3__.CommonModule, _driver_routing_module__WEBPACK_IMPORTED_MODULE_0__.DriverRoutingModule, ngx_liburg__WEBPACK_IMPORTED_MODULE_4__.TableMaterialModule, ngx_liburg__WEBPACK_IMPORTED_MODULE_4__.TableMaterialModule]
     });
   }
 }
@@ -403,7 +403,7 @@ class DriverModule {
 (function () {
   (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵsetNgModuleScope"](DriverModule, {
     declarations: [_driver_component__WEBPACK_IMPORTED_MODULE_1__.DriverComponent],
-    imports: [_angular_common__WEBPACK_IMPORTED_MODULE_3__.CommonModule, _driver_routing_module__WEBPACK_IMPORTED_MODULE_0__.DriverRoutingModule, ngx_liburg__WEBPACK_IMPORTED_MODULE_4__.TableMaterialModule],
+    imports: [_angular_common__WEBPACK_IMPORTED_MODULE_3__.CommonModule, _driver_routing_module__WEBPACK_IMPORTED_MODULE_0__.DriverRoutingModule, ngx_liburg__WEBPACK_IMPORTED_MODULE_4__.TableMaterialModule, ngx_liburg__WEBPACK_IMPORTED_MODULE_4__.TableMaterialModule],
     exports: [_driver_component__WEBPACK_IMPORTED_MODULE_1__.DriverComponent]
   });
 })();
@@ -34878,9 +34878,21 @@ function TableComponent_mat_header_row_2_Template(rf, ctx) {
   }
 }
 
+const _c3 = function (a0) {
+  return {
+    "zebra": a0
+  };
+};
+
 function TableComponent_mat_row_3_Template(rf, ctx) {
   if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "mat-row", 7);
+  }
+
+  if (rf & 2) {
+    const row_r7 = ctx.$implicit;
+    const ctx_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction1"](1, _c3, ctx_r1.rowOdd(row_r7) % 2 === 0 && ctx_r1.zebraColor));
   }
 }
 
@@ -34916,7 +34928,7 @@ function TableComponent_ng_container_5_mat_cell_2_ng_container_3_Template(rf, ct
   }
 }
 
-const _c3 = function (a0) {
+const _c4 = function (a0) {
   return {
     $implicit: a0
   };
@@ -34937,7 +34949,7 @@ function TableComponent_ng_container_5_mat_cell_2_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("@detailExpand", element_r11 === _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind1"](2, 4, ctx_r9.extandble$) ? "expanded" : "collapsed");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngTemplateOutlet", ctx_r9.newElementExtandble)("ngTemplateOutletContext", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction1"](6, _c3, element_r11));
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngTemplateOutlet", ctx_r9.newElementExtandble)("ngTemplateOutletContext", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction1"](6, _c4, element_r11));
   }
 }
 
@@ -34947,7 +34959,7 @@ function TableComponent_ng_container_5_mat_row_3_Template(rf, ctx) {
   }
 }
 
-const _c4 = function () {
+const _c5 = function () {
   return ["extensibleData"];
 };
 
@@ -34962,7 +34974,7 @@ function TableComponent_ng_container_5_Template(rf, ctx) {
 
   if (rf & 2) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("matRowDefColumns", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](1, _c4));
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("matRowDefColumns", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](1, _c5));
   }
 }
 
@@ -35002,7 +35014,7 @@ function TableComponent_div_7_Template(rf, ctx) {
   }
 }
 
-const _c5 = function () {
+const _c6 = function () {
   return [10, 20, 50];
 };
 
@@ -35022,11 +35034,11 @@ function TableComponent_mat_paginator_8_Template(rf, ctx) {
   if (rf & 2) {
     const ctx_r6 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵclassMap"](ctx_r6.paginationClass);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("length", ctx_r6.lenghtPagination)("pageSizeOptions", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](4, _c5));
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("length", ctx_r6.lenghtPagination)("pageSizeOptions", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](4, _c6));
   }
 }
 
-const _c6 = function (a0) {
+const _c7 = function (a0) {
   return {
     "box-shadow": a0
   };
@@ -35817,14 +35829,15 @@ let TableComponent = /*#__PURE__*/(() => {
 
       this.footerMessageClass = '';
       this.footerLabel = '';
+      this.zebraColor = false;
       this.footerColumn = ''; // flag about if we want to show pagination
 
       this.showPagination = false;
       this.footerAmount = false;
-      this.filterTooltip = true;
       this.addedNewEntry = false;
       this.onAddEntry = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.EventEmitter();
       this.onPaginationChange = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.EventEmitter();
+      this.filterTooltip = true;
       this.columnsToDispaly = [];
       this.totalAmount = 0;
       this.doubleColumnToDisplay = []; // for avoid memory leak
@@ -35869,6 +35882,10 @@ let TableComponent = /*#__PURE__*/(() => {
     drop(event) {
       (0,_angular_cdk_drag_drop__WEBPACK_IMPORTED_MODULE_17__.moveItemInArray)(this.dataSource, event.previousIndex, event.currentIndex);
       this.table.renderRows();
+    }
+
+    rowOdd(row) {
+      return this.dataSource.indexOf(row);
     }
 
     _makeRotationAction() {
@@ -35965,14 +35982,15 @@ let TableComponent = /*#__PURE__*/(() => {
       footerShow: "footerShow",
       footerMessageClass: "footerMessageClass",
       footerLabel: "footerLabel",
+      zebraColor: "zebraColor",
       footerColumn: "footerColumn",
       newElementExtandble: "newElementExtandble",
       showPagination: "showPagination",
       lenghtPagination: "lenghtPagination",
       paginationClass: "paginationClass",
       footerAmount: "footerAmount",
-      filterTooltip: "filterTooltip",
-      addedNewEntry: "addedNewEntry"
+      addedNewEntry: "addedNewEntry",
+      filterTooltip: "filterTooltip"
     },
     outputs: {
       onAddEntry: "onAddEntry",
@@ -35981,7 +35999,7 @@ let TableComponent = /*#__PURE__*/(() => {
     ngContentSelectors: _c0,
     decls: 9,
     vars: 13,
-    consts: [["mat-table", "", "multiTemplateDataRows", "true", "cdkDropList", "", 3, "dataSource", "cdkDropListData", "ngStyle", "cdkDropListDropped"], ["class", "header-color gap-1", "mat-header-row", "", 4, "matHeaderRowDef", "matHeaderRowDefSticky"], ["mat-row", "", "cdkDrag", "", "class", "gap-1 header-border-left", 4, "matRowDef", "matRowDefColumns"], [4, "ngIf"], ["class", "new", 3, "click", 4, "ngIf"], ["showFirstLastButtons", "", "aria-label", "Select page of periodic elements", 3, "class", "length", "pageSizeOptions", "page", 4, "ngIf"], ["mat-header-row", "", 1, "header-color", "gap-1"], ["mat-row", "", "cdkDrag", "", 1, "gap-1", "header-border-left"], ["mat-footer-row", "", 3, "class", 4, "matFooterRowDef"], ["mat-footer-row", ""], ["matColumnDef", "extensibleData"], ["class", "overflow-hidden", 4, "matCellDef"], ["class", "example-detail-row gap-1 header-border-left", 4, "matRowDef", "matRowDefColumns"], [1, "overflow-hidden"], [1, "elix__table"], [4, "ngTemplateOutlet", "ngTemplateOutletContext"], [1, "example-detail-row", "gap-1", "header-border-left"], [3, "amount", "label"], [1, "new", 3, "click"], [1, "new-entry", 3, "svgIcon"], ["showFirstLastButtons", "", "aria-label", "Select page of periodic elements", 3, "length", "pageSizeOptions", "page"]],
+    consts: [["mat-table", "", "multiTemplateDataRows", "true", "cdkDropList", "", 3, "dataSource", "cdkDropListData", "ngStyle", "cdkDropListDropped"], ["class", "header-color gap-1", "mat-header-row", "", 4, "matHeaderRowDef", "matHeaderRowDefSticky"], ["data-test", "mat-row-def", "mat-row", "", "cdkDrag", "", "class", "gap-1 header-border-left", 3, "ngClass", 4, "matRowDef", "matRowDefColumns"], [4, "ngIf"], ["class", "new", 3, "click", 4, "ngIf"], ["showFirstLastButtons", "", "aria-label", "Select page of periodic elements", 3, "class", "length", "pageSizeOptions", "page", 4, "ngIf"], ["mat-header-row", "", 1, "header-color", "gap-1"], ["data-test", "mat-row-def", "mat-row", "", "cdkDrag", "", 1, "gap-1", "header-border-left", 3, "ngClass"], ["mat-footer-row", "", 3, "class", 4, "matFooterRowDef"], ["mat-footer-row", ""], ["matColumnDef", "extensibleData"], ["class", "overflow-hidden", 4, "matCellDef"], ["class", "example-detail-row gap-1 header-border-left", 4, "matRowDef", "matRowDefColumns"], [1, "overflow-hidden"], [1, "elix__table"], [4, "ngTemplateOutlet", "ngTemplateOutletContext"], [1, "example-detail-row", "gap-1", "header-border-left"], [3, "amount", "label"], [1, "new", 3, "click"], [1, "new-entry", 3, "svgIcon"], ["showFirstLastButtons", "", "aria-label", "Select page of periodic elements", 3, "length", "pageSizeOptions", "page"]],
     template: function TableComponent_Template(rf, ctx) {
       if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵprojectionDef"]();
@@ -35991,7 +36009,7 @@ let TableComponent = /*#__PURE__*/(() => {
         });
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵprojection"](1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](2, TableComponent_mat_header_row_2_Template, 1, 0, "mat-header-row", 1);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](3, TableComponent_mat_row_3_Template, 1, 0, "mat-row", 2);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](3, TableComponent_mat_row_3_Template, 1, 3, "mat-row", 2);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](4, TableComponent_ng_container_4_Template, 2, 1, "ng-container", 3);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](5, TableComponent_ng_container_5_Template, 4, 2, "ng-container", 3);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -36001,7 +36019,7 @@ let TableComponent = /*#__PURE__*/(() => {
       }
 
       if (rf & 2) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("dataSource", ctx.dataSource)("cdkDropListData", ctx.dataSource)("ngStyle", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction1"](11, _c6, ctx.addedNewEntry ? "none" : ""));
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("dataSource", ctx.dataSource)("cdkDropListData", ctx.dataSource)("ngStyle", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction1"](11, _c7, ctx.addedNewEntry ? "none" : ""));
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("matHeaderRowDef", ctx.columnsToDispaly)("matHeaderRowDefSticky", true);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
@@ -36018,8 +36036,8 @@ let TableComponent = /*#__PURE__*/(() => {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.showPagination);
       }
     },
-    dependencies: [_angular_common__WEBPACK_IMPORTED_MODULE_4__.NgIf, _angular_common__WEBPACK_IMPORTED_MODULE_4__.NgTemplateOutlet, _angular_common__WEBPACK_IMPORTED_MODULE_4__.NgStyle, _angular_material_icon__WEBPACK_IMPORTED_MODULE_9__.MatIcon, _angular_material_table__WEBPACK_IMPORTED_MODULE_1__.MatTable, _angular_material_table__WEBPACK_IMPORTED_MODULE_1__.MatHeaderRowDef, _angular_material_table__WEBPACK_IMPORTED_MODULE_1__.MatColumnDef, _angular_material_table__WEBPACK_IMPORTED_MODULE_1__.MatCellDef, _angular_material_table__WEBPACK_IMPORTED_MODULE_1__.MatRowDef, _angular_material_table__WEBPACK_IMPORTED_MODULE_1__.MatFooterRowDef, _angular_material_table__WEBPACK_IMPORTED_MODULE_1__.MatCell, _angular_material_table__WEBPACK_IMPORTED_MODULE_1__.MatHeaderRow, _angular_material_table__WEBPACK_IMPORTED_MODULE_1__.MatRow, _angular_material_table__WEBPACK_IMPORTED_MODULE_1__.MatFooterRow, _angular_material_paginator__WEBPACK_IMPORTED_MODULE_18__.MatPaginator, _angular_cdk_drag_drop__WEBPACK_IMPORTED_MODULE_17__.CdkDropList, _angular_cdk_drag_drop__WEBPACK_IMPORTED_MODULE_17__.CdkDrag, FooterAmountComponent, _angular_common__WEBPACK_IMPORTED_MODULE_4__.AsyncPipe],
-    styles: ["elix-table{transition:all .5s ease-in}elix-table mat-table{color:transparent;border-collapse:collapse;border-radius:.5rem;overflow:hidden;box-shadow:#00000026 0 15px 25px,#0000000d 0 5px 10px}elix-table .header-border-left{border-left:1px solid}elix-table mat-header-row mat-header-cell{justify-content:flex-start;border-spacing:2rem}elix-table mat-row{border:.0625rem solid rgba(0,0,0,.15);transition:all ease-in-out .1s;min-height:32px;position:relative;height:max-content}elix-table mat-row textarea{outline:none}elix-table mat-row:hover{background:rgba(1,1,222,.1)}elix-table mat-row mat-cell{justify-content:flex-start;position:relative;min-height:1rem;color:#000}elix-table mat-row mat-cell mat-form-field div{padding:0!important;border:0!important}elix-table mat-row mat-cell mat-form-field div input{border:1px solid;box-shadow:inset 0 0 3px 1px #00f3}elix-table mat-row mat-cell textarea{background:inherit;height:1.95rem}elix-table mat-row mat-cell textarea:focus-visible{outline:none;border:1px solid var(--primary-color-input)}elix-table mat-row mat-cell button{padding:0!important;min-width:auto!important}elix-table mat-header-row{min-height:1.5rem}elix-table mat-header-row mat-header-cell{min-height:inherit}elix-table mat-header-cell{color:#fff!important}elix-table .header-color{background:#2d333b;z-index:99!important}elix-table .mat-form-field-infix{width:auto}elix-table .example-detail-row{min-height:0!important}elix-table .example-detail-row mat-cell{min-height:inherit}elix-table .example-detail-row mat-cell .mat-form-field-infix{width:auto!important}.cdk-drop-list-dragging .cdk-drag{transition:transform .35s cubic-bezier(0,0,.2,1)}.cdk-drag-preview{z-index:200;background-color:#fff;border:1px solid #5f7651;box-shadow:#32325d40 0 6px 12px -2px,#0000004d 0 3px 7px -3px}.cdk-drag-animating{transition:transform .35s cubic-bezier(0,0,.2,1)}.new{display:flex;align-items:center;padding:1rem 0 1rem .5rem}.new-entry{color:#52796f!important;padding-right:.5rem}\n"],
+    dependencies: [_angular_common__WEBPACK_IMPORTED_MODULE_4__.NgClass, _angular_common__WEBPACK_IMPORTED_MODULE_4__.NgIf, _angular_common__WEBPACK_IMPORTED_MODULE_4__.NgTemplateOutlet, _angular_common__WEBPACK_IMPORTED_MODULE_4__.NgStyle, _angular_material_icon__WEBPACK_IMPORTED_MODULE_9__.MatIcon, _angular_material_table__WEBPACK_IMPORTED_MODULE_1__.MatTable, _angular_material_table__WEBPACK_IMPORTED_MODULE_1__.MatHeaderRowDef, _angular_material_table__WEBPACK_IMPORTED_MODULE_1__.MatColumnDef, _angular_material_table__WEBPACK_IMPORTED_MODULE_1__.MatCellDef, _angular_material_table__WEBPACK_IMPORTED_MODULE_1__.MatRowDef, _angular_material_table__WEBPACK_IMPORTED_MODULE_1__.MatFooterRowDef, _angular_material_table__WEBPACK_IMPORTED_MODULE_1__.MatCell, _angular_material_table__WEBPACK_IMPORTED_MODULE_1__.MatHeaderRow, _angular_material_table__WEBPACK_IMPORTED_MODULE_1__.MatRow, _angular_material_table__WEBPACK_IMPORTED_MODULE_1__.MatFooterRow, _angular_material_paginator__WEBPACK_IMPORTED_MODULE_18__.MatPaginator, _angular_cdk_drag_drop__WEBPACK_IMPORTED_MODULE_17__.CdkDropList, _angular_cdk_drag_drop__WEBPACK_IMPORTED_MODULE_17__.CdkDrag, FooterAmountComponent, _angular_common__WEBPACK_IMPORTED_MODULE_4__.AsyncPipe],
+    styles: ["elix-table{transition:all .5s ease-in}elix-table mat-table{color:transparent;border-collapse:collapse;border-radius:.5rem;overflow:hidden;box-shadow:#00000026 0 15px 25px,#0000000d 0 5px 10px}elix-table .header-border-left{border-left:1px solid}elix-table mat-header-row mat-header-cell{justify-content:flex-start;border-spacing:2rem}elix-table .zebra{background-color:#eee}elix-table mat-row{border:.0625rem solid rgba(0,0,0,.15);transition:all ease-in-out .1s;min-height:32px;position:relative;height:max-content}elix-table mat-row textarea{outline:none}elix-table mat-row:hover{background:rgba(1,1,222,.1)}elix-table mat-row mat-cell{justify-content:flex-start;position:relative;min-height:1rem;color:#000}elix-table mat-row mat-cell mat-form-field div{padding:0!important;border:0!important}elix-table mat-row mat-cell mat-form-field div input{border:1px solid;box-shadow:inset 0 0 3px 1px #00f3}elix-table mat-row mat-cell textarea{background:inherit;height:1.95rem}elix-table mat-row mat-cell textarea:focus-visible{outline:none;border:1px solid var(--primary-color-input)}elix-table mat-row mat-cell button{padding:0!important;min-width:auto!important}elix-table mat-header-row{min-height:1.5rem}elix-table mat-header-row mat-header-cell{min-height:inherit}elix-table mat-header-cell{color:#fff!important}elix-table .header-color{background:#2d333b;z-index:99!important}elix-table .mat-form-field-infix{width:auto}elix-table .example-detail-row{min-height:0!important}elix-table .example-detail-row mat-cell{min-height:inherit}elix-table .example-detail-row mat-cell .mat-form-field-infix{width:auto!important}.cdk-drop-list-dragging .cdk-drag{transition:transform .35s cubic-bezier(0,0,.2,1)}.cdk-drag-preview{z-index:200;background-color:#fff;border:1px solid #5f7651;box-shadow:#32325d40 0 6px 12px -2px,#0000004d 0 3px 7px -3px}.cdk-drag-animating{transition:transform .35s cubic-bezier(0,0,.2,1)}.new{display:flex;align-items:center;padding:1rem 0 1rem .5rem}.new-entry{color:#52796f!important;padding-right:.5rem}\n"],
     encapsulation: 2,
     data: {
       animation: [(0,_angular_animations__WEBPACK_IMPORTED_MODULE_19__.trigger)('detailExpand', [(0,_angular_animations__WEBPACK_IMPORTED_MODULE_19__.state)('collapsed', (0,_angular_animations__WEBPACK_IMPORTED_MODULE_19__.style)({
@@ -36080,7 +36098,7 @@ let TableMaterialModule = /*#__PURE__*/(() => {
     type: TableMaterialModule
   });
   TableMaterialModule.ɵinj = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjector"]({
-    imports: [_angular_common__WEBPACK_IMPORTED_MODULE_4__.CommonModule, _angular_forms__WEBPACK_IMPORTED_MODULE_5__.FormsModule, _angular_material_button__WEBPACK_IMPORTED_MODULE_8__.MatButtonModule, _angular_material_form_field__WEBPACK_IMPORTED_MODULE_13__.MatFormFieldModule, _angular_material_icon__WEBPACK_IMPORTED_MODULE_9__.MatIconModule, _angular_material_input__WEBPACK_IMPORTED_MODULE_6__.MatInputModule, _angular_material_table__WEBPACK_IMPORTED_MODULE_1__.MatTableModule, _angular_material_select__WEBPACK_IMPORTED_MODULE_14__.MatSelectModule, _angular_material_paginator__WEBPACK_IMPORTED_MODULE_18__.MatPaginatorModule, _angular_cdk_layout__WEBPACK_IMPORTED_MODULE_11__.LayoutModule, _angular_material_table__WEBPACK_IMPORTED_MODULE_1__.MatTableModule, _angular_material_slide_toggle__WEBPACK_IMPORTED_MODULE_16__.MatSlideToggleModule, _angular_cdk_drag_drop__WEBPACK_IMPORTED_MODULE_17__.DragDropModule]
+    imports: [_angular_common__WEBPACK_IMPORTED_MODULE_4__.CommonModule, _angular_forms__WEBPACK_IMPORTED_MODULE_5__.FormsModule, _angular_material_button__WEBPACK_IMPORTED_MODULE_8__.MatButtonModule, _angular_material_form_field__WEBPACK_IMPORTED_MODULE_13__.MatFormFieldModule, _angular_material_icon__WEBPACK_IMPORTED_MODULE_9__.MatIconModule, _angular_material_input__WEBPACK_IMPORTED_MODULE_6__.MatInputModule, _angular_material_table__WEBPACK_IMPORTED_MODULE_1__.MatTableModule, _angular_material_select__WEBPACK_IMPORTED_MODULE_14__.MatSelectModule, _angular_material_paginator__WEBPACK_IMPORTED_MODULE_18__.MatPaginatorModule, _angular_cdk_layout__WEBPACK_IMPORTED_MODULE_11__.LayoutModule, _angular_material_slide_toggle__WEBPACK_IMPORTED_MODULE_16__.MatSlideToggleModule, _angular_cdk_drag_drop__WEBPACK_IMPORTED_MODULE_17__.DragDropModule]
   });
   return TableMaterialModule;
 })();
@@ -36102,4 +36120,4 @@ let TableMaterialModule = /*#__PURE__*/(() => {
 /***/ })
 
 }]);
-//# sourceMappingURL=624.b01a9df74f75935e.js.map
+//# sourceMappingURL=624.a528edb1cd47bc7b.js.map
