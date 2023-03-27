@@ -20,12 +20,12 @@ elix-table {
     }
   }
 
-  .zebra{
+  .zebra {
     background-color: #eee;
   }
 
   mat-row {
-    border:  0.0625rem solid rgba(0, 0, 0, 0.15);
+    border: 0.0625rem solid rgba(0, 0, 0, 0.15);
     transition: all ease-in-out .1s;
     min-height: 32px;
     position: relative;
@@ -77,9 +77,14 @@ elix-table {
 
   mat-header-row {
     min-height: 1.5rem;
+    gap: 1px;
 
     mat-header-cell {
       min-height: inherit;
+      height: 2rem !important;
+      background: #2d333b !important;
+      display: flex !important;
+      justify-content: center !important;
     }
   }
 
@@ -88,8 +93,8 @@ elix-table {
   }
 
   .header-color {
-    background: #2d333b;
     z-index: 99 !important;
+
   }
 
   .mat-form-field-infix {
@@ -101,6 +106,8 @@ elix-table {
 
     mat-cell {
       min-height: inherit;
+      display: flex !important;
+      justify-content: center !important;
 
       .mat-form-field-infix {
         width: auto !important;
@@ -113,7 +120,7 @@ elix-table {
   transition: transform 350ms cubic-bezier(0, 0, 0.2, 1);
 }
 
-.cdk-drag-preview{
+.cdk-drag-preview {
   z-index: 200;
   background-color: white;
   border: 1px solid #5f7651;
@@ -125,12 +132,12 @@ elix-table {
   transition: transform 350ms cubic-bezier(0, 0, 0.2, 1);
 }
 
-.new{
+.new {
   display: flex;
   align-items: center;
   padding: 1rem 0 1rem 0.5rem;
 
-  &-entry{
+  &-entry {
     color: #52796f !important;
     padding-right: 0.5rem;
   }

@@ -10,7 +10,6 @@ import { TableMaterialModule } from "ngx-liburg";
     CommonModule,
     DriverRoutingModule,
     TableMaterialModule,
-    TableMaterialModule,
   ], exports: [
     DriverComponent,
   ],
