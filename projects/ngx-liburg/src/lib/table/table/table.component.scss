@@ -27,7 +27,7 @@ elix-table {
   mat-row {
     border: 0.0625rem solid rgba(0, 0, 0, 0.15);
     transition: all ease-in-out .1s;
-    min-height: 32px;
+    min-height: 32px !important;
     position: relative;
 
     height: max-content;
@@ -124,6 +124,7 @@ elix-table {
   background-color: white;
   border: 1px solid #5f7651;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  height: 32px !important;
 }
 
 /* Animate an item that has been dropped. */
