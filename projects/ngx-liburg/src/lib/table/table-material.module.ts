@@ -36,7 +36,6 @@ import { TotalAmountPipe } from './columns/utils/pipe/total-amount.pipe';
 import {
   FooterAmountComponent
 } from './components/footer-amount/footer-amount.component';
-import { MatRippleModule } from "@angular/material/core";
 
 @NgModule({
   declarations: [
@@ -65,7 +64,6 @@ import { MatRippleModule } from "@angular/material/core";
         MatSelectModule,
         MatPaginatorModule,
         MatSlideToggleModule,
-        MatRippleModule,
     ],
   exports: [
     TableComponent,
