@@ -183,6 +183,7 @@ export class TableComponent<T> implements AfterViewInit, OnDestroy {
     } catch ( err ) {
       console.error(err);
     }
+    this._tableState.pushData(this.totalAmount)
     this._changeDetectorRef.detectChanges();
   }
 

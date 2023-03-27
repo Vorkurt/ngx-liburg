@@ -104,8 +104,8 @@ this.dataSource = this.list.map(resp => {
     </div>
 
 # Footer 
-  Flag to show  `FooterAmount` on the table state
-  Label footer to custom
+  Flag to show  `FooterAmount` on the table state.  
+  Label footer to custom.   
   FooterColumn send what column you want to make reduce
 
 # Zebra mode 
