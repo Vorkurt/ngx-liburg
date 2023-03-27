@@ -108,4 +108,7 @@ this.dataSource = this.list.map(resp => {
   Label footer to custom.   
   FooterColumn send what column you want to make reduce
 
+# Zebra mode 
+  Flag `zebraColor` true or false. Boolean value at the table state.
+
 # and enjoy at this beautiful library

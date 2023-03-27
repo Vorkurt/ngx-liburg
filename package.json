@@ -48,7 +48,7 @@
     "@angular/router": "^14.0.0",
     "@ngrx/store": "^14.0.2",
     "@supabase/supabase-js": "^1.35.6",
-    "ngx-liburg": "^0.5.2",
+    "ngx-liburg": "^0.6.1",
     "ngx-liburg-icon": "^0.0.18",
     "ngx-toastr": "^15.0.0",
     "reset-css": "^5.0.1",

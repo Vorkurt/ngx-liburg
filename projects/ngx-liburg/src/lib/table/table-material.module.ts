@@ -54,7 +54,9 @@ import { MatRippleModule } from "@angular/material/core";
   ],
     imports: [
         CommonModule,
+        DragDropModule,
         FormsModule,
+        LayoutModule,
         MatButtonModule,
         MatFormFieldModule,
         MatIconModule,
@@ -62,10 +64,8 @@ import { MatRippleModule } from "@angular/material/core";
         MatTableModule,
         MatSelectModule,
         MatPaginatorModule,
-        LayoutModule,
         MatSlideToggleModule,
-        DragDropModule,
-        MatRippleModule
+        MatRippleModule,
     ],
   exports: [
     TableComponent,
