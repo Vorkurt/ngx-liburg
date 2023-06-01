@@ -1,15 +1,11 @@
 import { Injectable } from '@angular/core';
-import {
-  ActivatedRouteSnapshot,
-  Resolve,
-  RouterStateSnapshot
-} from '@angular/router';
+import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { DriverService } from "./driver.service";
 
 @Injectable({
   providedIn: 'root',
 })
-export class DriversResolver implements Resolve<void> {
+export class DriversResolver  {
   constructor(
     private readonly _driverService: DriverService,
   ){
