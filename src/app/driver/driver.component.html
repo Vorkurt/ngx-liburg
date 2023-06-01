@@ -1,65 +1,47 @@
 <div class="driver-table-wrapper">
-  <elix-table
-    (onAddEntry)="newEntry()"
-    (onPaginationChange)="changePage($event)"
-    [addedNewEntry]="true"
-    [dataSource]="dataSourceDrivers"
-    [lenghtPagination]="dataSourceDrivers?.length"
-    [showPagination]="true"
-    [footerAmount]="true"
-    [footerLabel]="'Total'"
-    [footerColumn]="'id'"
-    [zebraColor]="true"
-    [footerShow]="true"
-  >
-
-    <elix-column-text
-      [editRow]="true"
-      className="test"
-      field="dataOfBirth"
-      name="DataOfBirth"
-      [footerMessage]="'Total'"
-    ></elix-column-text>
-    <elix-column-text
-      [editRow]="true"
-      className="fullName"
-      field="name"
-      name="Name"
-    ></elix-column-text>
-    <elix-column-text
-      className="driverLicense"
-      field="description"
-      name="Description"
-    ></elix-column-text>
-    <elix-column-two-cases
-      [editRow]="true"
-      className="license"
-      field="license"
-      name="License"
-    ></elix-column-two-cases>
-    <elix-column-text
-      [editRow]="true"
-      className="email"
-      field="email"
-      name="Email"
-    ></elix-column-text>
-    <elix-column-number
-      [editRow]="true"
-      className="test"
-      field="id"
-      name="Cost"
-      [footerMessage]="'Total'">
+  <elix-table (onAddEntry)="newEntry()"
+              (onPaginationChange)="changePage($event)"
+              [addedNewEntry]="true"
+              [dataSource]="dataSourceDrivers"
+              [lenghtPagination]="dataSourceDrivers?.length"
+              [showPagination]="true"
+              [footerAmount]="true"
+              [footerLabel]="'Total'"
+              [footerColumn]="'id'"
+              [zebraColor]="true"
+              [footerShow]="true">
+    <elix-column-text [editRow]="true"
+                      className="test"
+                      field="dataOfBirth"
+                      name="DataOfBirth"
+                      [footerMessage]="'Total'"></elix-column-text>
+    <elix-column-text [editRow]="true"
+                      className="fullName"
+                      field="name"
+                      name="Name"></elix-column-text>
+    <elix-column-text className="driverLicense"
+                      field="description"
+                      name="Description"></elix-column-text>
+    <elix-column-two-cases [editRow]="true"
+                           className="license"
+                           field="license"
+                           name="License"></elix-column-two-cases>
+    <elix-column-text [editRow]="true"
+                      className="email"
+                      field="email"
+                      name="Email"></elix-column-text>
+    <elix-column-number [editRow]="true"
+                        className="test"
+                        field="id"
+                        name="Cost"
+                        [footerMessage]="'Total'">
     </elix-column-number>
-    <elix-column-icon-action
-      className="action2"
-      field="action2"
-      name="ACTION FIELD"
-    ></elix-column-icon-action>
-    <elix-column-icon-action
-      [iconAction]="true"
-      className="action"
-      field="action"
-      name="ACTION FIELD"
-    ></elix-column-icon-action>
+    <elix-column-icon-action className="action2"
+                             field="action2"
+                             name="ACTION FIELD"></elix-column-icon-action>
+    <elix-column-icon-action [iconAction]="true"
+                             className="action"
+                             field="action"
+                             name="ACTION FIELD"></elix-column-icon-action>
   </elix-table>
 </div>
