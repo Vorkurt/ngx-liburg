@@ -1,6 +1,6 @@
 import { Location } from '@angular/common';
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { PageEvent } from '@angular/material/paginator';
+import { LegacyPageEvent as PageEvent } from '@angular/material/legacy-paginator';
 
 import { BehaviorSubject, Subject } from 'rxjs';
 import { Driver } from './util';

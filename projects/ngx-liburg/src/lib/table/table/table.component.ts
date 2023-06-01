@@ -20,8 +20,8 @@ import {
   ViewChild,
   ViewEncapsulation
 } from '@angular/core';
-import { MatPaginator, PageEvent } from '@angular/material/paginator';
-import { MatColumnDef, MatTable } from '@angular/material/table';
+import { MatLegacyPaginator as MatPaginator, LegacyPageEvent as PageEvent } from '@angular/material/legacy-paginator';
+import { MatLegacyColumnDef as MatColumnDef, MatLegacyTable as MatTable } from '@angular/material/legacy-table';
 import { BehaviorSubject, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { BaseColumn } from '../base-column';
