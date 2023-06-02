@@ -12,9 +12,7 @@
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
     "paths": {
-      "ngx-liburg": [
-        "dist/ngx-liburg"
-      ]
+      "ngx-liburg": ["dist/ngx-liburg"]
     },
     "declaration": false,
     "downlevelIteration": true,
@@ -24,10 +22,7 @@
     "target": "ES2022",
     "module": "ES2022",
     "useDefineForClassFields": false,
-    "lib": [
-      "ES2022",
-      "dom"
-    ]
+    "lib": ["ES2022", "dom"]
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
@@ -35,12 +30,7 @@
     "strictInputAccessModifiers": true,
     "strictTemplates": true
   },
-  "files": [
-    "src/test.ts",
-    "src/polyfills.ts"
-  ],
-  "include": [
-    "**/*.spec.ts",
-    "**/*.d.ts"
-  ]
+  "plugins": [{ "name": "@angular/language-service" }],
+  "files": ["src/test.ts", "src/polyfills.ts"],
+  "include": ["**/*.spec.ts", "**/*.d.ts"]
 }

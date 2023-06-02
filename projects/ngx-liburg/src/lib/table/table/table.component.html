@@ -1,9 +1,12 @@
-<mat-table mat-table [dataSource]="dataSource"
-           multiTemplateDataRows="true"
-           cdkDropList
-           [cdkDropListData]="dataSource"
-           [ngStyle]="{'box-shadow': addedNewEntry ? 'none': ''}"
-           (cdkDropListDropped)="drop($event)">
+<mat-table
+  mat-table
+  [dataSource]="dataSource"
+  multiTemplateDataRows="true"
+  cdkDropList
+  [cdkDropListData]="dataSource"
+  [style.box-shadow]="addedNewEntry ? 'none': ''"
+  (cdkDropListDropped)="drop($event)"
+>
   <ng-content></ng-content>
   <mat-header-row
     class="header-color gap-1"
@@ -16,9 +19,9 @@
     mat-row
     cdkDrag
     matRipple
-    *matRowDef="let row; columns: columnsToDispaly;"
+    *matRowDef="let row; columns: columnsToDispaly; let i = index"
     class="gap-1 header-border-left"
-    [ngClass]="{'zebra': rowOdd(row) % 2 === 0 && zebraColor }"
+    [class.zebra]="dataSource.indexOf(row) % 2 === 0 && zebraColor"
   ></mat-row>
   <!-- Footer for tabel -->
   <ng-container *ngIf="footerShow">
@@ -67,14 +70,10 @@
   </lib-footer-amount>
 </ng-container>
 <div class="new" *ngIf="addedNewEntry" (click)="addNewEntry()">
-  <mat-icon
-    [svgIcon]="'fa_solid:circle-plus'"
-    class="new-entry"
-  ></mat-icon>
+  <mat-icon [svgIcon]="'fa_solid:circle-plus'" class="new-entry"></mat-icon>
   <div>
     <p>Added new Entry</p>
   </div>
-
 </div>
 <mat-paginator
   [class]="paginationClass"

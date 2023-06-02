@@ -1,5 +1,5 @@
 import { Component, Input, ViewChild } from '@angular/core';
-import { MatColumnDef } from '@angular/material/table';
+import { MatLegacyColumnDef as MatColumnDef } from '@angular/material/legacy-table';
 
 @Component({
   selector: 'app-base',
